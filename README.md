@@ -92,6 +92,8 @@ Offline mode is a deliberately unintelligent test double that answers `UNKNOWN`.
 
 See [the published experiment report](artifacts/RESULTS.md) and [source research notes](docs/RESEARCH.md). Downloaded papers, databases, caches, keys and private run logs are excluded from publication. Public JSON replaces source passages with hashes; collect the pinned corpus to reproduce retrieval.
 
+The initial live pilot passed **5/12 automatic rubric checks with raw RAG and 10/12 with either memory arm**. Replay added no accuracy gain. These are small, literal-rubric results; the report documents false negatives, higher token usage, preprocessing costs and extraction errors. They do not establish broad superiority.
+
 This is a small custom paper-QA experiment, **not an official MemoryAgentBench result**. The initial study uses a limited prefix of four publicly known papers; models may have seen these papers in pretraining. Character budgets are not exact token budgets. Summary/replay generation costs are shared and reported separately; their construction costs are not independently isolated. Replay is retrieved data, not model fine-tuning. Claims of broad superiority require larger independent paper sets, expert-audited tasks, additional budgets and stronger retrieval baselines.
 
 The MIT license covers this project's original code/documentation. Papers and third-party datasets retain their own licenses. Background and methodology draw on [MemoryAgentBench](https://github.com/HUST-AI-HYZ/MemoryAgentBench), [LongMemEval](https://github.com/xiaowu0162/LongMemEval), [MemGPT](https://arxiv.org/abs/2310.08560v2) and [CoALA](https://arxiv.org/abs/2309.02427v3).

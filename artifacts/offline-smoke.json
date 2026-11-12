@@ -2648,5 +2648,6 @@
     "Replay is retrieved synthetic text, not model training. Character budgets are not token budgets.",
     "API usage is provider-reported successful-call usage; failed-request charges may be missing.",
     "Temperature zero and repeated hosted calls do not guarantee deterministic outputs."
-  ]
+  ],
+  "source_passages_redacted": true
 }

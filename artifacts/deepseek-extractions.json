@@ -1,0 +1,1322 @@
+{
+  "model": "DeepSeek-V4-Flash",
+  "smoke_only": false,
+  "papers_total": 4,
+  "scope": {
+    "mode": "first_chunks",
+    "max_chunks_per_paper": 6,
+    "max_new_chunks": null
+  },
+  "papers_complete": 0,
+  "papers_partial": 4,
+  "chunks_processed": 11,
+  "cached_chunks": 13,
+  "claims_total": 97,
+  "usage": {
+    "prompt_tokens": 10353,
+    "total_tokens": 12406,
+    "completion_tokens": 2053,
+    "reasoning_tokens": 0
+  },
+  "calls": [
+    {
+      "seconds": 3.86603719499999,
+      "usage": {
+        "prompt_tokens": 878,
+        "total_tokens": 1072,
+        "completion_tokens": 194,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.00017724,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 3.3745824669995272,
+      "usage": {
+        "prompt_tokens": 963,
+        "total_tokens": 1041,
+        "completion_tokens": 78,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.00015666,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 3.651241587000186,
+      "usage": {
+        "prompt_tokens": 915,
+        "total_tokens": 1136,
+        "completion_tokens": 221,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001548568,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 5.7710648759994,
+      "usage": {
+        "prompt_tokens": 964,
+        "total_tokens": 1319,
+        "completion_tokens": 355,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001992368,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 3.7985926929995912,
+      "usage": {
+        "prompt_tokens": 951,
+        "total_tokens": 1152,
+        "completion_tokens": 201,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001542968,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 3.3806241969996336,
+      "usage": {
+        "prompt_tokens": 937,
+        "total_tokens": 1070,
+        "completion_tokens": 133,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001332968,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 3.1496533460003775,
+      "usage": {
+        "prompt_tokens": 860,
+        "total_tokens": 1023,
+        "completion_tokens": 163,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001309168,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 2.86237410800004,
+      "usage": {
+        "prompt_tokens": 1042,
+        "total_tokens": 1138,
+        "completion_tokens": 96,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001376368,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 4.1044590139999855,
+      "usage": {
+        "prompt_tokens": 941,
+        "total_tokens": 1146,
+        "completion_tokens": 205,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001540168,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 3.411401993000254,
+      "usage": {
+        "prompt_tokens": 1056,
+        "total_tokens": 1225,
+        "completion_tokens": 169,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001600368,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    },
+    {
+      "seconds": 3.89258962599979,
+      "usage": {
+        "prompt_tokens": 846,
+        "total_tokens": 1084,
+        "completion_tokens": 238,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0001499568,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  ],
+  "papers": [
+    {
+      "arxiv_id": "2309.02427v3",
+      "model": "DeepSeek-V4-Flash",
+      "text_sha256": "2ecf821e98cebcdf8c94c633f3f1c335381d9e771cc916a1097cb3a60a630d9b",
+      "status": "partial",
+      "processed_chunks": 6,
+      "total_chunks": 107,
+      "requested_chunks": 6,
+      "requested_scope_complete": true,
+      "claims": [
+        {
+          "kind": "gap",
+          "interpretation": "The paper identifies a lack of a framework to organize existing language agents and plan future developments, motivating the proposal of CoALA.",
+          "evidence_sha256": "110c02db0a04455ddc43ef87e6974b3775c95e1b84d9c89b346f08e36392e5f5",
+          "evidence_characters": 141,
+          "message_id": 227,
+          "gap_origin": "author_reported",
+          "chunk_index": 0,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The paper proposes Cognitive Architectures for Language Agents (CoALA), drawing on cognitive science and symbolic AI.",
+          "evidence_sha256": "b009b90e6cfe33caf260ffce92b7d50e2234a93d6881f5891f21741b252d2506",
+          "evidence_characters": 149,
+          "message_id": 227,
+          "gap_origin": null,
+          "chunk_index": 0,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "CoALA describes a language agent with modular memory components, a structured action space for internal memory and external environments, and a generalized decision-making process.",
+          "evidence_sha256": "d4ac353ac50fd6d1dc981da096061829e7a3daf2cace716ad5eff5f8d588d969",
+          "evidence_characters": 300,
+          "message_id": 228,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "CoALA is used to retrospectively survey and organize recent work and prospectively identify actionable directions for more capable agents.",
+          "evidence_sha256": "df2c5e7249d6391a7e15ef5e1490d85259932bde8a07f46a2bd46f8ddee1053a",
+          "evidence_characters": 600,
+          "message_id": 228,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "CoALA contextualizes language agents within the broader history of AI and outlines a path towards language-based general intelligence.",
+          "evidence_sha256": "2cc0aa595fce60b163ca246749f3b8251d51757f355df02156ccbeaee9496a3d",
+          "evidence_characters": 300,
+          "message_id": 228,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Language agents are an emerging class of AI systems that use large language models to interact with the world.",
+          "evidence_sha256": "ca7ea4fa4bf87eed69cf5c618d4798c51b7dafe81415b2111d10c5847f220ecc",
+          "evidence_characters": 300,
+          "message_id": 228,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Language agents apply advances in LLMs to the existing field of agent design, benefiting both fields.",
+          "evidence_sha256": "cb31833c6078ebeb55dbec9bcefc6063f878624def17d87ecd77a289f67e5e7a",
+          "evidence_characters": 300,
+          "message_id": 228,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "LLMs have limited knowledge and reasoning capabilities, which language agents mitigate by connecting LLMs to external resources.",
+          "evidence_sha256": "3c3bc52faf7062cacbae5ec2acdbbbbdaf15061a9346e40e63c5ea283cc0d24b",
+          "evidence_characters": 372,
+          "message_id": 228,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Language agents leverage commonsense priors in LLMs to adapt to novel tasks, reducing dependence on human annotation or trial-and-error learning.",
+          "evidence_sha256": "a18945499c00a9272baa572872efaeb95d61d66ec4a0f695e4bce39b4e149653",
+          "evidence_characters": 300,
+          "message_id": 229,
+          "gap_origin": null,
+          "chunk_index": 2,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Traditional agents often require handcrafted rules or reinforcement learning, making generalization to new environments challenging.",
+          "evidence_sha256": "bb9968806ca4e7d3938ad4150ae460b17337e1425f7572fc94c2d8f160901cfa",
+          "evidence_characters": 600,
+          "message_id": 229,
+          "gap_origin": null,
+          "chunk_index": 2,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Earliest language agents used LLMs to directly select or generate actions, while more recent agents use them for reasoning, planning, and long-term memory management.",
+          "evidence_sha256": "cdc0c81390fe80ede96f7335e1fca95c031510ef0d07878ca3c03d0fdc447a54",
+          "evidence_characters": 600,
+          "message_id": 229,
+          "gap_origin": null,
+          "chunk_index": 2,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Individual works use custom terminology for internal processes, making it difficult to compare agents, understand evolution, or build new agents with clean abstractions.",
+          "evidence_sha256": "e388d6eacb577d138541a2952ee98fe89c81c20788b24bce077a723d9b24f28d",
+          "evidence_characters": 372,
+          "message_id": 229,
+          "gap_origin": "author_reported",
+          "chunk_index": 2,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The paper draws a parallel between production systems and LLMs, suggesting that cognitive architecture controls used with production systems may be applicable to transform LLMs into language agents.",
+          "evidence_sha256": "3cf22a8e680221fe976d24e3d7cac4d6061236710120ad4bf4eee02f4776b805",
+          "evidence_characters": 600,
+          "message_id": 230,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The paper proposes a conceptual framework organizing efforts by drawing parallels with production systems and cognitive architectures from the history of computing and AI.",
+          "evidence_sha256": "6774ba0b2665be42b9b97019578204c8e5b72fd60bb52e0bbc4576dbac6e7c4a",
+          "evidence_characters": 600,
+          "message_id": 230,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The paper proposes Cognitive Architectures for Language Agents (CoALA), a conceptual framework to characterize and design general purpose language agents.",
+          "evidence_sha256": "c16f00d77d5ab5c7b4a8684b29e419d56169e81e55b50a99a714e61354431edd",
+          "evidence_characters": 300,
+          "message_id": 231,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "CoALA organizes agents along three key dimensions: information storage (working and long-term memories), action space (internal and external actions), and decision-making procedure (interactive loop with planning and execution).",
+          "evidence_sha256": "17b4917fb6a67dcc362da15c36be09b393c395c6705ea9e0d15e309abd7a1c39",
+          "evidence_characters": 600,
+          "message_id": 231,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "CoALA can neatly express a large body of existing agents and identify underexplored directions to develop new ones.",
+          "evidence_sha256": "8d9d05469cb64d297bfbed65d8eafe49e090ed4fb833fbf580efb0035136f655",
+          "evidence_characters": 372,
+          "message_id": 231,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The paper proposes a theoretical framework (CoALA) and uses it to organize diverse empirical work on language agents, grounding theory in existing practices.",
+          "evidence_sha256": "15a3a850c979cda219851f591b004e1ce742afd3bea30d6e56f9b3a875ac58f6",
+          "evidence_characters": 600,
+          "message_id": 232,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The paper identifies both short-term and long-term directions for future work by combining conceptual architecture proposals with empirical surveys.",
+          "evidence_sha256": "525c01548e31c6469593b0caccb2fe8bb2b81a207858ff75f1a0365d558b20b2",
+          "evidence_characters": 300,
+          "message_id": 232,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The paper introduces production systems and cognitive architectures, then shows how recent LLM and language agent developments recapitulate these historical ideas.",
+          "evidence_sha256": "b820e9345a4097e070eed7c925958ec7d87c86d05e846b43e2239ff81dc39a38",
+          "evidence_characters": 300,
+          "message_id": 232,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The CoALA framework is introduced in Section 4 and used to survey existing language agents.",
+          "evidence_sha256": "b820e9345a4097e070eed7c925958ec7d87c86d05e846b43e2239ff81dc39a38",
+          "evidence_characters": 300,
+          "message_id": 232,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The paper provides a deeper case study of several prominent agents in Section 5.",
+          "evidence_sha256": "79f945a9032843aa3cccf32726c111436a04ecb4fd68bf6c7fe1df2a43c6a984",
+          "evidence_characters": 300,
+          "message_id": 232,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Section 6 suggests actionable steps to construct future language agents, and Section 7 highlights open questions in cognitive science and AI.",
+          "evidence_sha256": "79f945a9032843aa3cccf32726c111436a04ecb4fd68bf6c7fe1df2a43c6a984",
+          "evidence_characters": 300,
+          "message_id": 232,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2310.08560v2",
+      "model": "DeepSeek-V4-Flash",
+      "text_sha256": "e9cc7cde82dc194c67c6d9e1d727c8d74b850427f55554f5c392e916668d70df",
+      "status": "partial",
+      "processed_chunks": 6,
+      "total_chunks": 44,
+      "requested_chunks": 6,
+      "requested_scope_complete": true,
+      "claims": [
+        {
+          "kind": "finding",
+          "interpretation": "LLMs are constrained by limited context windows, hindering utility in extended conversations and document analysis.",
+          "evidence_sha256": "ff403e60f7476fd125840ea7cee2285ab7833307bc235b2d07ddb0195099684e",
+          "evidence_characters": 300,
+          "message_id": 183,
+          "gap_origin": null,
+          "chunk_index": 0,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The paper proposes virtual context management, a technique inspired by hierarchical memory systems in operating systems that provide extended virtual memory via paging between physical memory and disk.",
+          "evidence_sha256": "aa5c413f363b5c5679035fe69f4e2a5e17a5e082e7fbb78e6de92d474cfaeea1",
+          "evidence_characters": 600,
+          "message_id": 183,
+          "gap_origin": null,
+          "chunk_index": 0,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT is introduced as a system that intelligently manages different storage tiers to effectively provide extended context within the LLM's limited context window.",
+          "evidence_sha256": "179ee93f660ced4e214067ea76523437ca51d3c11552f92c4153bd55c4c5e3c4",
+          "evidence_characters": 370,
+          "message_id": 183,
+          "gap_origin": null,
+          "chunk_index": 0,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "MemGPT is evaluated in document analysis, where it can analyze large documents exceeding the LLM's context window.",
+          "evidence_sha256": "b161292018b6c2477a071a198025c80296c1e973a922fe194bb986845abd0165",
+          "evidence_characters": 600,
+          "message_id": 184,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "MemGPT is evaluated in multi-session chat, creating agents that remember, reflect, and evolve through long-term interactions.",
+          "evidence_sha256": "5c8a61130930c9e03fc094bb4e6450d49e9dbd20ad4c0acbf0fe2019b8acd13e",
+          "evidence_characters": 300,
+          "message_id": 184,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The limited fixed-length context windows of LLMs significantly hinder their applicability to long conversations or reasoning about long documents.",
+          "evidence_sha256": "80477da68cf75ddef02f1436de94c37c7079c6d8ff08bacf945df274b42d7947",
+          "evidence_characters": 300,
+          "message_id": 184,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Most widely used open-source LLMs can only support a few dozen back-and-forth messages or reason about a short document before exceeding their max context window.",
+          "evidence_sha256": "dc4b188b9b8cfcaa7cc5c287e756857f12124152eccaea88e2f6738700a1c41d",
+          "evidence_characters": 370,
+          "message_id": 184,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Directly extending transformer context length causes quadratic increases in computational time and memory cost due to self-attention.",
+          "evidence_sha256": "a8a05f9bcb0a7e7c2fb51e6f50abb82d9590edbe5c5db831c7150949eb9db005",
+          "evidence_characters": 600,
+          "message_id": 185,
+          "gap_origin": null,
+          "chunk_index": 2,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Long-context models struggle to effectively utilize additional context even if computational challenges are overcome.",
+          "evidence_sha256": "648ba92aed745f138d8ba33513033fda4dd94cfd8f41d4e989b627e7b9171339",
+          "evidence_characters": 600,
+          "message_id": 185,
+          "gap_origin": null,
+          "chunk_index": 2,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "There is a critical need for alternative techniques to support long context due to high training costs and diminishing returns of context scaling.",
+          "evidence_sha256": "9e14812b41965a1b218b4d0b1db9e769f87b8a0d52300b461cc1bbce8294cf46",
+          "evidence_characters": 600,
+          "message_id": 185,
+          "gap_origin": "author_reported",
+          "chunk_index": 2,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The paper proposes providing the illusion of infinite context while using fixed-context models, borrowing from virtual memory paging.",
+          "evidence_sha256": "ee8374a7c3021af354b20e21ac75b75c90dd761a6db9943df2b1c3d821d310a4",
+          "evidence_characters": 370,
+          "message_id": 185,
+          "gap_origin": null,
+          "chunk_index": 2,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT is an OS-inspired LLM system for virtual context management, built on recent progress in function calling abilities of LLM agents.",
+          "evidence_sha256": "1bf4c0d1d34567fafb7bfd59b18910685071f6efcb6972c47f78dd0d09aa33ed",
+          "evidence_characters": 300,
+          "message_id": 186,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT uses function calls to let LLM agents read/write external data sources, modify their own context, and decide when to respond to the user.",
+          "evidence_sha256": "27251e1f8db64c5733c9d8ab60c72b69cc7c3e45760040e3e396aa919ab8907a",
+          "evidence_characters": 600,
+          "message_id": 186,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT enables LLMs to page information between context windows (main memory) and external storage, analogous to hierarchical memory in traditional OSes.",
+          "evidence_sha256": "4c335904bf210482226806eca659b5ca7ada961f59190c3b11d6c676317775ce",
+          "evidence_characters": 300,
+          "message_id": 186,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "Function calls manage control flow among context management, response generation, and user interactions, allowing iterative context modification for a single task.",
+          "evidence_sha256": "d6bc1ee57c86bf8de4f0532b79a99289c7389b3eed334064d4c225e4635548b7",
+          "evidence_characters": 300,
+          "message_id": 186,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT treats context windows as a constrained memory resource and designs a memory hierarchy for LLMs analogous to memory tiers in traditional OSes.",
+          "evidence_sha256": "a59c9437ef646602fe6adca09873dc0293a6e01c4a31da2fd090350af42e6d96",
+          "evidence_characters": 300,
+          "message_id": 186,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "The excerpt does not state limitations or future directions of MemGPT itself; no explicit gap is reported.",
+          "evidence_sha256": "1bf4c0d1d34567fafb7bfd59b18910685071f6efcb6972c47f78dd0d09aa33ed",
+          "evidence_characters": 300,
+          "message_id": 186,
+          "gap_origin": "author_reported",
+          "chunk_index": 3,
+          "review_status": "rejected_by_textual_spot_audit",
+          "gap_scope": "not_established_as_own_method_limitation",
+          "review_reason": "No-gap placeholder is not a research gap."
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT is an LLM OS that lets the LLM manage its own context, analogous to physical memory, to create an illusion of longer context length.",
+          "evidence_sha256": "995d45eb6b8266ad4a7b6396b14505558b16a467716fc2fba86eb64e01f9a974",
+          "evidence_characters": 600,
+          "message_id": 187,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT enables retrieval of relevant historical data missing from context and eviction of less relevant data to external storage.",
+          "evidence_sha256": "a2b942999fc26326c81b120519927621da12369cf203aed71d3548094ffd99aa",
+          "evidence_characters": 600,
+          "message_id": 187,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The combination of memory-hierarchy, OS functions, and event-based control flow allows MemGPT to handle unbounded context with finite-context LLMs.",
+          "evidence_sha256": "82259f37ef6b85bb7e513f363a1b2a53fbaaf1342d1fcbceaa66a857d7e8ea29",
+          "evidence_characters": 600,
+          "message_id": 187,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "MemGPT is evaluated on document analysis and conversational agents, domains where existing LLMs are limited by finite context.",
+          "evidence_sha256": "7b8580a002ed38140d2b9df35bbdf97c1d044976808df110ec333cb011a02e32",
+          "evidence_characters": 370,
+          "message_id": 187,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "MemGPT overcomes finite context limitations to outperform existing LLM-based approaches in both tested settings.",
+          "evidence_sha256": "eaed9f6d1abc7ad2188839b6b5f6a0d424cfe6c9f2c11447bb8ee6b9c88a4018",
+          "evidence_characters": 600,
+          "message_id": 188,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT augments a fixed-context LLM processor with a hierarchical memory system and functions for self-managing memory.",
+          "evidence_sha256": "77cbd2cf25a0c145d14031540296d0b27174869f52e9c3c481de7af583ba7d63",
+          "evidence_characters": 600,
+          "message_id": 188,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT's main context consists of system instructions, working context, and a FIFO queue; outputs are interpreted as function calls.",
+          "evidence_sha256": "e5c16ff79bb3f8c66455299b24b6e10a55846270511b54c046963387c26e27d2",
+          "evidence_characters": 600,
+          "message_id": 188,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT uses functions to move data between main context and external context (archival and recall storage databases).",
+          "evidence_sha256": "806444ee84e10861b0e575fbea0b96e2fb1bbd7146edc04488be3f8e2f35f684",
+          "evidence_characters": 370,
+          "message_id": 188,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemGPT enables function chaining via a request_heartbeat=true keyword argument, allowing multi-step retrieval to answer user queries.",
+          "evidence_sha256": "806444ee84e10861b0e575fbea0b96e2fb1bbd7146edc04488be3f8e2f35f684",
+          "evidence_characters": 370,
+          "message_id": 188,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2410.10813v2",
+      "model": "DeepSeek-V4-Flash",
+      "text_sha256": "252f96f78cda799c9bcfed6fff94174ff85e217a44863ca3e2576d7c30661ac1",
+      "status": "partial",
+      "processed_chunks": 6,
+      "total_chunks": 84,
+      "requested_chunks": 6,
+      "requested_scope_complete": true,
+      "claims": [
+        {
+          "kind": "finding",
+          "interpretation": "LongMemEval is a benchmark evaluating five core long-term memory abilities of chat assistants: information extraction, multi-session reasoning, temporal reasoning, knowledge updates, and abstention.",
+          "evidence_sha256": "9bdde234ff21d15561ed7f282796de75283f93dbdc92cd597b5944c380c6dcc1",
+          "evidence_characters": 600,
+          "message_id": 1,
+          "gap_origin": null,
+          "chunk_index": 0,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The benchmark contains 500 curated questions embedded within freely scalable user-assistant chat histories.",
+          "evidence_sha256": "64bfa278bc4927f55136f82b56f451d725a0565159b5e0cdc55cd9e09bcd1630",
+          "evidence_characters": 300,
+          "message_id": 1,
+          "gap_origin": null,
+          "chunk_index": 0,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "LongMemEval presents a significant challenge to existing long-term memory systems, including commercial chat assistants.",
+          "evidence_sha256": "6e65d50da62af379ad1d67c244b245509762efe49cdcd521b8e36cad82a83171",
+          "evidence_characters": 402,
+          "message_id": 1,
+          "gap_origin": null,
+          "chunk_index": 0,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "The long-term memory capabilities of LLM-driven chat assistants in sustained interactions remain underexplored.",
+          "evidence_sha256": "238fc867c36aa4dfed90251a8e84361bded1536c3b915da4508bf1ad37d6f3bd",
+          "evidence_characters": 300,
+          "message_id": 1,
+          "gap_origin": "author_reported",
+          "chunk_index": 0,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Long-context LLMs show a 30% accuracy drop on memorizing information across sustained interactions.",
+          "evidence_sha256": "b08463cbaf2ee055f469528b3b2a20944a1c96d06b9cd573e48e2c1530d44901",
+          "evidence_characters": 300,
+          "message_id": 2,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The paper presents a unified framework breaking down long-term memory design into three stages: indexing, retrieval, and reading.",
+          "evidence_sha256": "fca2988083d9c553cc2f7d66a1a0f1e4a541207a61c07634796b3e0fac7695ee",
+          "evidence_characters": 600,
+          "message_id": 2,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "Proposes memory design optimizations including session decomposition for value granularity, fact-augmented key expansion for indexing, and time-aware query expansion for refining search scope.",
+          "evidence_sha256": "8943141b9c8919e0a995edc07896ff720e47d921797891a0a36431eeeb014a07",
+          "evidence_characters": 300,
+          "message_id": 2,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The proposed optimizations greatly improve both memory recall and downstream question answering on LongMemEval.",
+          "evidence_sha256": "a8a16c640f3f25396efae6f1cf16ccddcafaa17e90bbdb909b30e7fd4a4c09a3",
+          "evidence_characters": 600,
+          "message_id": 2,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The study provides resources and guidance for advancing long-term memory capabilities of LLM-based chat assistants.",
+          "evidence_sha256": "124286f3bdeabcb3ab0725eb919e3b91c7b09c87030f045a1c81c568c9fea474",
+          "evidence_characters": 300,
+          "message_id": 2,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Limited progress in holistically evaluating memory capability in long-term interactions.",
+          "evidence_sha256": "a74d6c7d0ebcb1ff7a4b9811ba52a358d60e1b7096b6c783c3b948e71e10217c",
+          "evidence_characters": 300,
+          "message_id": 3,
+          "gap_origin": "author_reported",
+          "chunk_index": 2,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Existing benchmarks for long chat histories have shortcomings, including not accurately reflecting user-AI interactions.",
+          "evidence_sha256": "743991b05c0dd5f983a16a2fc30121726184811cdb3ef5637deafb2339be8ed1",
+          "evidence_characters": 402,
+          "message_id": 3,
+          "gap_origin": "author_reported",
+          "chunk_index": 2,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Existing long-term memory benchmarks omit task-oriented dialogues, which are a significant portion of chat assistant usage and challenge memorization with long-context inputs and long-form responses.",
+          "evidence_sha256": "6cb83cf6b98ca4eabb09285c073f66331ca7b4c3b0278c45ec6f713023d58c6b",
+          "evidence_characters": 600,
+          "message_id": 4,
+          "gap_origin": "author_reported",
+          "chunk_index": 3,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Current benchmarks' interactive histories have non-configurable lengths of only a few thousand tokens, limiting difficulty as systems improve.",
+          "evidence_sha256": "e31fc623c4e2bcd7a1b66ca9f96cbd1e142cc2f84f8b4f0c9f8de60ee5d91d7e",
+          "evidence_characters": 300,
+          "message_id": 4,
+          "gap_origin": "author_reported",
+          "chunk_index": 3,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "MemoryBank and PerLTQA insufficiently evaluate the ability to synthesize information across numerous sessions or reason with temporal metadata or time references.",
+          "evidence_sha256": "249520a5fc0ea15ff04eadea8bafa71997b63a5eb6bac022e6e25825c0560a16",
+          "evidence_characters": 300,
+          "message_id": 4,
+          "gap_origin": "author_reported",
+          "chunk_index": 3,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "All long-term memory benchmarks, including LoCoMo, fail to evaluate recall of information provided by the assistant or reasoning with updated user information.",
+          "evidence_sha256": "f732d6d0fd47e9e2a5f2b46987d296ca48674fd99875272f449b062475e98805",
+          "evidence_characters": 300,
+          "message_id": 4,
+          "gap_origin": "author_reported",
+          "chunk_index": 3,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "method",
+          "interpretation": "LongMemEval is a comprehensive benchmark for assessing long-term memory capabilities of chat assistants, consisting of 500 manually created questions to test five core abilities.",
+          "evidence_sha256": "45a31289c9f4696cdda273b72730aecad98e7ed7cc69e77bc040e8f34d9f6e9b",
+          "evidence_characters": 402,
+          "message_id": 4,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "LongMemEval is a benchmark for chat assistants on long-term interactive memory, covering five memory abilities: information extraction, multi-session reasoning, temporal reasoning, knowledge updates, and abstention.",
+          "evidence_sha256": "0646c4fb11d374a1201228b0c8aaf7ab6c86d17228a29bcde031e0152ce66183",
+          "evidence_characters": 300,
+          "message_id": 5,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The benchmark uses a pipeline inspired by the needle-in-a-haystack test to compile coherent and length-configurable chat histories for each question.",
+          "evidence_sha256": "82e87ac4f939aa1d43d633fbe05bdd096de91a75240975f70f8a77d538e3b712",
+          "evidence_characters": 300,
+          "message_id": 5,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "Two standard settings are provided: LongMemEvalS with approximately 115k tokens per problem and LongMemEvalM with 500 sessions (around 1.5 million tokens).",
+          "evidence_sha256": "5b068d48b5f6f3cd430bce0ef03e5ec65b0e1780d71e8546e2529bcc72f1345d",
+          "evidence_characters": 300,
+          "message_id": 5,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Long-context LLMs show a 30% to 60% performance drop on LongMemEvalS, indicating the benchmark's difficulty.",
+          "evidence_sha256": "a30052e8e347d1b48f74fb068eec7712418a6b4b32363347f2ee49bf3fee9315",
+          "evidence_characters": 300,
+          "message_id": 5,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "State-of-the-art commercial systems achieved only 30% to 70% accuracy in a setting much simpler than LongMemEvalS.",
+          "evidence_sha256": "a30052e8e347d1b48f74fb068eec7712418a6b4b32363347f2ee49bf3fee9315",
+          "evidence_characters": 300,
+          "message_id": 5,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "The paper presents a unified view for memory-augmented chat assistants, but the excerpt cuts off before detailing this view, leaving it as an incomplete future direction.",
+          "evidence_sha256": "e5c1d04603f4547de284133428a3ad0bfc9b732ac22beff53ebce82926d13b25",
+          "evidence_characters": 102,
+          "message_id": 5,
+          "gap_origin": "author_reported",
+          "chunk_index": 4,
+          "review_status": "rejected_by_textual_spot_audit",
+          "gap_scope": "not_established_as_own_method_limitation",
+          "review_reason": "An excerpt boundary is not an author-reported scientific gap."
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Round is a more optimal granularity than session for storing and utilizing interactive history, but further compression into individual user facts harms overall performance while improving multi-session reasoning accuracy.",
+          "evidence_sha256": "3c734c9f95986a5f2bd35f6cd6994b1208c164ce7efc37063de8716f448fb596",
+          "evidence_characters": 300,
+          "message_id": 6,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Expanding flat index keys with extracted user facts improves memory recall by 9.4% and downstream question answering accuracy by 5.4% compared to using memory values as keys.",
+          "evidence_sha256": "4a6893b2dba1139078fdfb7b4183f9f89b7e5f3c44f048d33b9632cf2c25f63c",
+          "evidence_characters": 300,
+          "message_id": 6,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Naive time-agnostic memory designs perform poorly on temporal reasoning questions.",
+          "evidence_sha256": "8c57e3e041c9901e029cbdc30544235a8df8151e78efad1c503c0e7251b781ad",
+          "evidence_characters": 300,
+          "message_id": 6,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "Proposes a simple indexing and query expansion strategy that explicitly associates timestamps with facts and narrows the search range, improving temporal reasoning memory recall by 6.8% to 11.3% when a strong LLM is used for query expansion.",
+          "evidence_sha256": "c2f600c6a24cce449c66991e3e202005fe92a254e24c22ac59fa4f867cdbf5a8",
+          "evidence_characters": 402,
+          "message_id": 6,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2507.05257v4",
+      "model": "DeepSeek-V4-Flash",
+      "text_sha256": "7306c022b59f0edfe1d6beccb41cc0294e37633f745c95e15df12e3431a1baf0",
+      "status": "partial",
+      "processed_chunks": 6,
+      "total_chunks": 98,
+      "requested_chunks": 6,
+      "requested_scope_complete": true,
+      "claims": [
+        {
+          "kind": "gap",
+          "interpretation": "Memory in LLM agents is under-evaluated due to lack of benchmarks.",
+          "evidence_sha256": "b0d9b69cbd8dc9f7624a3d694152c75b767b8fb561a071178402dc4a533ed9ce",
+          "evidence_characters": 900,
+          "message_id": 85,
+          "gap_origin": "author_reported",
+          "chunk_index": 0,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The paper identifies four core competencies for memory agents: accurate retrieval, test-time learning, long-range understanding, and selective forgetting.",
+          "evidence_sha256": "4506df00d7a2a8263ee4671e04278a7cb67dec66ba47e0ee1eaf2db9f5310bf3",
+          "evidence_characters": 600,
+          "message_id": 85,
+          "gap_origin": null,
+          "chunk_index": 0,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Existing benchmarks rely on limited context lengths or are tailored for static, long-context settings like book-based QA, which do not reflect the interactive, multi-turn nature of memory agents.",
+          "evidence_sha256": "906b415a375b89379898b1c19381c2a0ddee79fc8016e3b25ebcecb55e02d0f3",
+          "evidence_characters": 400,
+          "message_id": 85,
+          "gap_origin": "author_reported",
+          "chunk_index": 0,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "method",
+          "interpretation": "MemoryAgentBench is a new benchmark designed for memory agents, transforming existing long-context datasets and incorporating newly constructed datasets into a multi-turn format.",
+          "evidence_sha256": "88dca84d4aa4df2f34094026ef2cfbf90df3a785cde95b9b579905fae39f73cf",
+          "evidence_characters": 600,
+          "message_id": 86,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The benchmark simulates incremental information processing characteristic of memory agents and covers four core memory competencies.",
+          "evidence_sha256": "9b795c3bbf224cc3f421487593f6b91ae569f42a69524df328c9bf19173a10c9",
+          "evidence_characters": 600,
+          "message_id": 86,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Evaluation of diverse memory agents (from context-based and RAG systems to advanced agents with external memory) shows current methods fall short of mastering all four competencies.",
+          "evidence_sha256": "784486d1156bd7673c2ec628d1e8d9d2c02ab4ecec071383d874fb6bb58a462c",
+          "evidence_characters": 600,
+          "message_id": 86,
+          "gap_origin": null,
+          "chunk_index": 1,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "The results underscore the need for further research into comprehensive memory mechanisms for LLM agents.",
+          "evidence_sha256": "f2b5ec1d0d084ad4c7aae9fa1da5c1bf64e07687b0a9b3683ee25484b5bd7178",
+          "evidence_characters": 300,
+          "message_id": 86,
+          "gap_origin": "author_reported",
+          "chunk_index": 1,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Existing agentic benchmarks focus on reasoning and leave memorization under-explored.",
+          "evidence_sha256": "52a7daae1664ee3f0877043ea5d9cf8c2220d3af1be36905ad8e57c95ec3c66d",
+          "evidence_characters": 600,
+          "message_id": 87,
+          "gap_origin": "author_reported",
+          "chunk_index": 2,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "There is no unified benchmark for systematically evaluating memory quality in agents.",
+          "evidence_sha256": "cfe523dd7480e5a0ab9011013d3b7baebbfd16a9016a1d2ea832473fa4c75962",
+          "evidence_characters": 400,
+          "message_id": 87,
+          "gap_origin": "author_reported",
+          "chunk_index": 2,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Recent memory-centric architectures employ diverse strategies for storing and retrieving past information.",
+          "evidence_sha256": "e183129d96b429abb3895943771ade6b6382ef0c43465c5e6441fa62134d74b8",
+          "evidence_characters": 600,
+          "message_id": 87,
+          "gap_origin": null,
+          "chunk_index": 2,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "This paper focuses on memory agents that use textual histories and external databases, as these are most common in real-world applications.",
+          "evidence_sha256": "b30fbe5f96a80424bbcf5da747b158eb68d20c760817a73930f473cdb9d6dc7b",
+          "evidence_characters": 600,
+          "message_id": 88,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Memory encoded in model parameters is typically less capable than proprietary memory systems on closed-sourced API models.",
+          "evidence_sha256": "67a74961677e6b69373013988ecb1d3c253584d13d58a386ca3f7c02d6e2a04b",
+          "evidence_characters": 600,
+          "message_id": 88,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "The paper identifies four complementary competencies to evaluate memory agents, based on classic theories in memory and cognitive science.",
+          "evidence_sha256": "a14d4e20af5e8dc3a1b9688d18ea64b2f7bd7f31c981f53f8a25167a42f09f69",
+          "evidence_characters": 600,
+          "message_id": 88,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "One competency is Accurate Retrieval (AR), the ability to extract the correct snippet in response to a query, including one-hop or multi-hop retrieval.",
+          "evidence_sha256": "97afd19626d05f46e308353bd8e2e65fa5cccbbd803e4d0baa960d075e5bdc20",
+          "evidence_characters": 300,
+          "message_id": 88,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "method",
+          "interpretation": "Another competency is Test-Time Learning (TTL), the capacity to incorporate new behaviors or acquire new skills during deployment without additional training.",
+          "evidence_sha256": "464b58f7fbb6b34dd633d72206d41b038651c9d8b925d626e8dfb34b74507d3d",
+          "evidence_characters": 400,
+          "message_id": 88,
+          "gap_origin": null,
+          "chunk_index": 3,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "The paper defines four complementary competencies for memory agents: Long-Range Understanding (LRU), Selective Forgetting (SF), and two others (implied by context).",
+          "evidence_sha256": "d5978968f42b43d99fd1584ced023afccce58787403edc132a7043973a3f1137",
+          "evidence_characters": 600,
+          "message_id": 89,
+          "gap_origin": null,
+          "chunk_index": 4,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Early benchmarks (LOCOMO, LooGLE, LongBench) have relatively short contexts that no longer challenge current models.",
+          "evidence_sha256": "056700050c4ff70c762da5c1b5723422b941b16d53f4e303e989e410545261d1",
+          "evidence_characters": 600,
+          "message_id": 89,
+          "gap_origin": "author_reported",
+          "chunk_index": 4,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "More recent datasets (NovelQA, NOCHA, Loong, \u221e-Bench) extend context length but the excerpt is cut off, implying a limitation or gap in these datasets.",
+          "evidence_sha256": "7cab97c3b4a0970e3635dc0093702d4946c548f9c3a1a100c2003771426ab074",
+          "evidence_characters": 400,
+          "message_id": 89,
+          "gap_origin": "author_reported",
+          "chunk_index": 4,
+          "review_status": "rejected_by_textual_spot_audit",
+          "gap_scope": "not_established_as_own_method_limitation",
+          "review_reason": "A cut-off excerpt does not establish an implied limitation."
+        },
+        {
+          "kind": "gap",
+          "interpretation": "Long-context benchmarks cannot be directly used to evaluate memory agents because they provide the entire context in a single block, whereas memory agents process context incrementally.",
+          "evidence_sha256": "7149143245e189086bf3799d4ec35835a2e576e5fd96086fc0def25d8d9adec3",
+          "evidence_characters": 1200,
+          "message_id": 90,
+          "gap_origin": "author_reported",
+          "chunk_index": 5,
+          "review_status": "requires_scope_review",
+          "gap_scope": "not_established_as_own_method_limitation"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Memory is a compressed and distilled representation of past information, selectively extracting salient details and removing irrelevant information, unlike long context which stores all historical content verbatim.",
+          "evidence_sha256": "2f96d0714f8871dac7769fa650788a5136ab649ec799587d157e802cba36944f",
+          "evidence_characters": 600,
+          "message_id": 90,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "finding",
+          "interpretation": "Memory agents are designed to process context incrementally, absorbing input piece by piece, abstracting and consolidating information over time, generating new inferences, and learning novel rules from accumulated history.",
+          "evidence_sha256": "3bf9af4a5c6566b6b4e742e0f1eb9f408c4295d3a3eb133fa3b4990714477a81",
+          "evidence_characters": 600,
+          "message_id": 90,
+          "gap_origin": null,
+          "chunk_index": 5,
+          "review_status": "unreviewed_candidate"
+        },
+        {
+          "kind": "gap",
+          "interpretation": "LongMemEval (Wu et al., 2025) addresses the limitation of long-context benchmarks by using synthetic long-form conversations that can be injected into memory gradually, session by session.",
+          "evidence_sha256": "acb18ff4e02e19e796394bf0c2c6db313fec0c45d7f3a8877add17b22df7027a",
+          "evidence_characters": 400,
+          "message_id": 90,
+          "gap_origin": "author_reported",
+          "chunk_index": 5,
+          "review_status": "rejected_by_textual_spot_audit",
+          "gap_scope": "not_established_as_own_method_limitation",
+          "review_reason": "This describes a prior solution, not a gap."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Quotes are exact-source validated; interpretation and attribution require review.",
+    "Gap claims are instructed to be author-reported, not inferred.",
+    "Claims remain separate from raw memory; no unverified promotion."
+  ],
+  "source_passages_redacted": true,
+  "audit": {
+    "type": "automated textual spot audit, not expert validation",
+    "flagged_gap_claims": 4,
+    "total_claims": 97,
+    "usage_scope": "Usage covers new calls in the final invocation; earlier setup and resumed calls are not totaled."
+  }
+}

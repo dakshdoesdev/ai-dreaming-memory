@@ -48,4 +48,4 @@ These are experimental safeguards, not established findings:
 
 ## What remains unestablished
 
-Until authenticated model runs are completed, offline smoke outputs demonstrate orchestration only. Textual task rubrics are proxies for task completion; no external research task is executed automatically. A useful next study would use independent, preregistered paper sets and expert-audited questions, vary context budgets, and include a dense or hybrid retrieval baseline. Claims about genuine scientific discovery, model learning, or biological dreaming are outside this experiment's scope.
+The [initial authenticated pilot](../artifacts/RESULTS.md) is now complete; offline smoke outputs still demonstrate orchestration only. Textual task rubrics are proxies for task completion; no external research task is executed automatically. A useful next study would use independent, preregistered paper sets and expert-audited questions, vary context budgets, and include a dense or hybrid retrieval baseline. Claims about genuine scientific discovery, model learning, or biological dreaming are outside this experiment's scope.
