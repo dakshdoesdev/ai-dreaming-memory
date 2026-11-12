@@ -1,0 +1,77 @@
+{
+  "papers": [
+    {
+      "arxiv_id": "2309.02427v3",
+      "title": "Cognitive Architectures for Language Agents",
+      "authors": [
+        "Theodore R. Sumers",
+        "Shunyu Yao",
+        "Karthik Narasimhan",
+        "Thomas L. Griffiths"
+      ],
+      "published": "2023-09-05T17:56:20Z",
+      "updated": "2024-03-15T15:44:11Z",
+      "url": "https://arxiv.org/abs/2309.02427v3",
+      "license": "unknown; verify paper license before redistribution",
+      "metadata_source": "https://export.arxiv.org/api/query?id_list=2309.02427v3&max_results=1",
+      "text_source": "https://arxiv.org/html/2309.02427v3",
+      "text_sha256": "2ecf821e98cebcdf8c94c633f3f1c335381d9e771cc916a1097cb3a60a630d9b"
+    },
+    {
+      "arxiv_id": "2310.08560v2",
+      "title": "MemGPT: Towards LLMs as Operating Systems",
+      "authors": [
+        "Charles Packer",
+        "Sarah Wooders",
+        "Kevin Lin",
+        "Vivian Fang",
+        "Shishir G. Patil",
+        "Ion Stoica",
+        "Joseph E. Gonzalez"
+      ],
+      "published": "2023-10-12T17:51:32Z",
+      "updated": "2024-02-12T18:59:46Z",
+      "url": "https://arxiv.org/abs/2310.08560v2",
+      "license": "unknown; verify paper license before redistribution",
+      "metadata_source": "https://export.arxiv.org/api/query?id_list=2310.08560v2&max_results=1",
+      "text_source": "https://arxiv.org/html/2310.08560v2",
+      "text_sha256": "e9cc7cde82dc194c67c6d9e1d727c8d74b850427f55554f5c392e916668d70df"
+    },
+    {
+      "arxiv_id": "2410.10813v2",
+      "title": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory",
+      "authors": [
+        "Di Wu",
+        "Hongwei Wang",
+        "Wenhao Yu",
+        "Yuwei Zhang",
+        "Kai-Wei Chang",
+        "Dong Yu"
+      ],
+      "published": "2024-10-14T17:59:44Z",
+      "updated": "2025-03-04T22:19:41Z",
+      "url": "https://arxiv.org/abs/2410.10813v2",
+      "license": "unknown; verify paper license before redistribution",
+      "metadata_source": "https://export.arxiv.org/api/query?id_list=2410.10813v2&max_results=1",
+      "text_source": "https://arxiv.org/html/2410.10813v2",
+      "text_sha256": "252f96f78cda799c9bcfed6fff94174ff85e217a44863ca3e2576d7c30661ac1"
+    },
+    {
+      "arxiv_id": "2507.05257v4",
+      "title": "Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions",
+      "authors": [
+        "Yuanzhe Hu",
+        "Yu Wang",
+        "Julian McAuley"
+      ],
+      "published": "2025-07-07T17:59:54Z",
+      "updated": "2026-06-28T17:25:01Z",
+      "url": "https://arxiv.org/abs/2507.05257v4",
+      "license": "unknown; verify paper license before redistribution",
+      "metadata_source": "https://export.arxiv.org/api/query?id_list=2507.05257v4&max_results=1",
+      "text_source": "https://arxiv.org/html/2507.05257v4",
+      "text_sha256": "7306c022b59f0edfe1d6beccb41cc0294e37633f745c95e15df12e3431a1baf0"
+    }
+  ],
+  "full_text_in_repository": false
+}

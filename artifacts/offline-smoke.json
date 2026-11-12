@@ -1,0 +1,2652 @@
+{
+  "report_version": 1,
+  "experiment": "paper-memory-pilot",
+  "model": "offline-smoke-NOT-an-LLM",
+  "smoke_only": true,
+  "repeats": 1,
+  "seed": 42,
+  "retrieval_k": 4,
+  "context_char_budget": 2400,
+  "corpus_scope": "first_chunks_per_paper",
+  "max_chunks_per_paper": 6,
+  "original_chunk_count": 333,
+  "evaluated_chunk_count": 24,
+  "question_source_coverage": {
+    "granularity": "paper",
+    "all_support_papers_present": true,
+    "answer_evidence_in_selected_chunks_verified": false,
+    "limitation": "Support labels identify papers, not answer-bearing chunks; a selected prefix may omit the required evidence."
+  },
+  "consolidation_every_chunks": 6,
+  "arm_orders": [
+    {
+      "repeat": 0,
+      "arms": [
+        "summary",
+        "rag",
+        "replay"
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "arxiv_id": "2309.02427v3",
+      "title": "Cognitive Architectures for Language Agents",
+      "url": "https://arxiv.org/abs/2309.02427v3",
+      "text_sha256": "2ecf821e98cebcdf8c94c633f3f1c335381d9e771cc916a1097cb3a60a630d9b",
+      "chunks": 6,
+      "original_chunks": 107,
+      "evaluated_chunks": 6,
+      "evaluated_chunks_sha256": "16a877aaeba34278579ed64b45b68895d382b4b308dc7345971fd7581a649c01"
+    },
+    {
+      "arxiv_id": "2310.08560v2",
+      "title": "MemGPT: Towards LLMs as Operating Systems",
+      "url": "https://arxiv.org/abs/2310.08560v2",
+      "text_sha256": "e9cc7cde82dc194c67c6d9e1d727c8d74b850427f55554f5c392e916668d70df",
+      "chunks": 6,
+      "original_chunks": 44,
+      "evaluated_chunks": 6,
+      "evaluated_chunks_sha256": "4b2cbb08ad0e3469f92b25f1067adb76ee173d46499a0a1aaca43cf236f13a5c"
+    },
+    {
+      "arxiv_id": "2410.10813v2",
+      "title": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory",
+      "url": "https://arxiv.org/abs/2410.10813v2",
+      "text_sha256": "252f96f78cda799c9bcfed6fff94174ff85e217a44863ca3e2576d7c30661ac1",
+      "chunks": 6,
+      "original_chunks": 84,
+      "evaluated_chunks": 6,
+      "evaluated_chunks_sha256": "018f5a9e1963dbce905260c2d79b798bbc9783054494da07fca83534194a545e"
+    },
+    {
+      "arxiv_id": "2507.05257v4",
+      "title": "Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions",
+      "url": "https://arxiv.org/abs/2507.05257v4",
+      "text_sha256": "7306c022b59f0edfe1d6beccb41cc0294e37633f745c95e15df12e3431a1baf0",
+      "chunks": 6,
+      "original_chunks": 98,
+      "evaluated_chunks": 6,
+      "evaluated_chunks_sha256": "4bbefd369f3f7a21a0526a4e5cdea6eca59def260da2b1c0d7835949e3ccdb6f"
+    }
+  ],
+  "corpus_sha256": "436f33dac469d6b5cf9c94664a37047bfc4f5eb22a2a93a4a8c907e6a4ca00e4",
+  "questions_sha256": "86b514a80dce0015eb121d905c8b5f70dc344877f8e487b4a57ccac500b360e1",
+  "metrics": {
+    "rag": {
+      "answer_accuracy": 0.16666666666666666,
+      "counts": {
+        "recall": 6,
+        "task": 4,
+        "abstention": 2
+      },
+      "usage": {
+        "requests": 12,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 12
+      },
+      "recall": 0.0,
+      "task": 0.0,
+      "abstention": 1.0,
+      "source_recall": 0.9
+    },
+    "summary": {
+      "answer_accuracy": 0.16666666666666666,
+      "counts": {
+        "recall": 6,
+        "task": 4,
+        "abstention": 2
+      },
+      "usage": {
+        "requests": 12,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 12
+      },
+      "recall": 0.0,
+      "task": 0.0,
+      "abstention": 1.0,
+      "source_recall": 1.0
+    },
+    "replay": {
+      "answer_accuracy": 0.16666666666666666,
+      "counts": {
+        "recall": 6,
+        "task": 4,
+        "abstention": 2
+      },
+      "usage": {
+        "requests": 12,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 12
+      },
+      "recall": 0.0,
+      "task": 0.0,
+      "abstention": 1.0,
+      "source_recall": 1.0
+    }
+  },
+  "paired_vs_rag": {
+    "summary": {
+      "mean_support_cluster_delta": 0.0,
+      "support_clusters": 3,
+      "bootstrap_95_ci": null,
+      "uncertainty": "Too few support clusters (<5); no confidence interval reported."
+    },
+    "replay": {
+      "mean_support_cluster_delta": 0.0,
+      "support_clusters": 3,
+      "bootstrap_95_ci": null,
+      "uncertainty": "Too few support clusters (<5); no confidence interval reported."
+    }
+  },
+  "preprocessing": [
+    {
+      "repeat": 0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        },
+        {
+          "seconds": 0,
+          "usage": {}
+        },
+        {
+          "seconds": 0,
+          "usage": {}
+        },
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 4,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 4
+      },
+      "storage_characters": {
+        "raw": 30864,
+        "summary": 4800,
+        "replay": 31416
+      }
+    }
+  ],
+  "records": [
+    {
+      "question_id": "lme-stages",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "recall",
+      "question": "According to LongMemEval, what three stages make up its long-term memory design framework?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            13
+          ],
+          "text_sha256": "b6663700a2d68b86656db66d741c0ff5179b188083adaec719beb2fa2d89152f",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            14
+          ],
+          "text_sha256": "a5e311691bfecf05263cea2072494670d2e69653ce8ef253b7e464cf986e298a",
+          "text_characters": 1302
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            15
+          ],
+          "text_sha256": "294607963b9b4970e761c798169cf3d974d8bce2d8fe0ee1bd6ebde7c076e2d0",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            18
+          ],
+          "text_sha256": "b74b52adda14f5be7c2ed9afb3f32fd28942d98b383043ea1b56537e9fbf79f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "13": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 0
+        },
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        },
+        "15": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 2
+        },
+        "18": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "lme-questions",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "recall",
+      "question": "How many curated questions does LongMemEval contain?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            13
+          ],
+          "text_sha256": "2221fc08a45ca703f67c6223dcbf8a2fd9c6acffc62f66271e3f6696c159d4a9",
+          "text_characters": 1302
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            13
+          ],
+          "text_sha256": "b6663700a2d68b86656db66d741c0ff5179b188083adaec719beb2fa2d89152f",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            17
+          ],
+          "text_sha256": "5864aa7414d7ae1436f589ba62e76940781f32f994bed20f22ea558c141c5393",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            18
+          ],
+          "text_sha256": "b74b52adda14f5be7c2ed9afb3f32fd28942d98b383043ea1b56537e9fbf79f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "13": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 0
+        },
+        "17": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 4
+        },
+        "18": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "mab-competencies",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "recall",
+      "question": "Name all four memory competencies in the pinned MemoryAgentBench paper.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            4
+          ],
+          "text_sha256": "5b963b6e81655f90d3554579ebb1365b7dee45264ea4d793757730b51cc12da4",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            20
+          ],
+          "text_sha256": "f9406917476a7a4a0571307b427d770538151c1f0c63b4560d5cabd9206c374a",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            20
+          ],
+          "text_sha256": "ec93f725e96c2f6dbf5681f15b92f669d0f51a1ad6ffbcd9f622158fc452ee51",
+          "text_characters": 1300
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            23
+          ],
+          "text_sha256": "44f49d99d38e3ce6d668d7c7f6fd5f54da02a7892ebfab03802fe3b9be8db8f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "4": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 3
+        },
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        },
+        "23": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2507.05257v4"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "memgpt-technique",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "recall",
+      "question": "What is the name of the context-management technique proposed by MemGPT?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            7
+          ],
+          "text_sha256": "c28952ae3eab62cf14982c5bc83bf9b04a102c44c6a37622e5d56d6c75bb18cb",
+          "text_characters": 1270
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            8
+          ],
+          "text_sha256": "1c469de8dff6ebcae8fe871e60273b6f288f569b1591f950009abda5a8648623",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            9
+          ],
+          "text_sha256": "efb6d6ce51573d492c730d1329b78f9e16b53ec27ba2ba93b5074a5abed9a0b0",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            12
+          ],
+          "text_sha256": "45fc8af2984227b61d3d5a6772114379199e867b81bf82847b75beeb09c26585",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "7": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 0
+        },
+        "8": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 1
+        },
+        "9": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 2
+        },
+        "12": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2310.08560v2"
+      ],
+      "support_papers": [
+        "2310.08560v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "coala-components",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "recall",
+      "question": "What three architectural elements does the CoALA abstract use to describe a language agent?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            2
+          ],
+          "text_sha256": "a2421ae917ec58c76282bd6e228b2c2d71d3992336c3225cebacd0fbfe65ee76",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            4
+          ],
+          "text_sha256": "5b963b6e81655f90d3554579ebb1365b7dee45264ea4d793757730b51cc12da4",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            5
+          ],
+          "text_sha256": "b80911f76ce3465a55cb7a1cf85a6bd4f4410d75909874e43b699738ecea2c83",
+          "text_characters": 1272
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            18
+          ],
+          "text_sha256": "b74b52adda14f5be7c2ed9afb3f32fd28942d98b383043ea1b56537e9fbf79f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "2": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 1
+        },
+        "4": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 3
+        },
+        "5": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 4
+        },
+        "18": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2309.02427v3"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "memgpt-domains",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "recall",
+      "question": "Name the two evaluation domains reported by MemGPT.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            4
+          ],
+          "text_sha256": "5b963b6e81655f90d3554579ebb1365b7dee45264ea4d793757730b51cc12da4",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            8
+          ],
+          "text_sha256": "1c469de8dff6ebcae8fe871e60273b6f288f569b1591f950009abda5a8648623",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            11
+          ],
+          "text_sha256": "2fe2909f2a198bb2b188dbba2387e91afff03138f3c966583b5e446e14d14b5b",
+          "text_characters": 1270
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            11
+          ],
+          "text_sha256": "1c3eab5e2ba0b0090fda3b39469c0b32aba72060c858a93cf286253a31933aeb",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "4": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 3
+        },
+        "8": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 1
+        },
+        "11": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2310.08560v2"
+      ],
+      "support_papers": [
+        "2310.08560v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "lme-brief",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "task",
+      "question": "Write a LongMemEval research brief stating question count and all five memory abilities evaluated.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            14
+          ],
+          "text_sha256": "5237140cf027d50183855e1fe618fba952f8484c3dc0715a87ff66866de11c98",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            17
+          ],
+          "text_sha256": "6048f70fd1893ba984370800b4911446a8376214597e1fbf804c2c396f8c1b26",
+          "text_characters": 1302
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            17
+          ],
+          "text_sha256": "5864aa7414d7ae1436f589ba62e76940781f32f994bed20f22ea558c141c5393",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            20
+          ],
+          "text_sha256": "f9406917476a7a4a0571307b427d770538151c1f0c63b4560d5cabd9206c374a",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        },
+        "17": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 4
+        },
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2",
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "mab-brief",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "task",
+      "question": "Write a MemoryAgentBench study note naming its four competencies and explaining that the input is processed incrementally in multi-turn form.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            9
+          ],
+          "text_sha256": "efb6d6ce51573d492c730d1329b78f9e16b53ec27ba2ba93b5074a5abed9a0b0",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            19
+          ],
+          "text_sha256": "d66ad6a2ae270daf18a9973abc9a97cc8634c6fb36d1a63ddc766d2eaf5984bf",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            20
+          ],
+          "text_sha256": "ec93f725e96c2f6dbf5681f15b92f669d0f51a1ad6ffbcd9f622158fc452ee51",
+          "text_characters": 1300
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            20
+          ],
+          "text_sha256": "f9406917476a7a4a0571307b427d770538151c1f0c63b4560d5cabd9206c374a",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "9": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 2
+        },
+        "19": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 0
+        },
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2310.08560v2",
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2507.05257v4"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "coala-memgpt",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "task",
+      "question": "Compare MemGPT and CoALA: name MemGPT's context-management technique and CoALA's memory, action-space and decision-making elements.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            2
+          ],
+          "text_sha256": "a2421ae917ec58c76282bd6e228b2c2d71d3992336c3225cebacd0fbfe65ee76",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            5
+          ],
+          "text_sha256": "b80911f76ce3465a55cb7a1cf85a6bd4f4410d75909874e43b699738ecea2c83",
+          "text_characters": 1272
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            9
+          ],
+          "text_sha256": "efb6d6ce51573d492c730d1329b78f9e16b53ec27ba2ba93b5074a5abed9a0b0",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            12
+          ],
+          "text_sha256": "45fc8af2984227b61d3d5a6772114379199e867b81bf82847b75beeb09c26585",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "2": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 1
+        },
+        "5": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 4
+        },
+        "9": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 2
+        },
+        "12": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2310.08560v2"
+      ],
+      "support_papers": [
+        "2310.08560v2",
+        "2309.02427v3"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "framework-compare",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "task",
+      "question": "Contrast the LongMemEval three-stage memory design framework with the MemoryAgentBench four competency categories. Name every stage and category.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            4
+          ],
+          "text_sha256": "5b963b6e81655f90d3554579ebb1365b7dee45264ea4d793757730b51cc12da4",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            14
+          ],
+          "text_sha256": "a5e311691bfecf05263cea2072494670d2e69653ce8ef253b7e464cf986e298a",
+          "text_characters": 1302
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            18
+          ],
+          "text_sha256": "b74b52adda14f5be7c2ed9afb3f32fd28942d98b383043ea1b56537e9fbf79f2",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            20
+          ],
+          "text_sha256": "f9406917476a7a4a0571307b427d770538151c1f0c63b4560d5cabd9206c374a",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "4": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 3
+        },
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        },
+        "18": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 5
+        },
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2410.10813v2",
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2410.10813v2",
+        "2507.05257v4"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "unknown-amd",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "abstention",
+      "question": "What exact accuracy did DeepSeek-V4-Flash on AMD Token Lab achieve in the collected LongMemEval paper?",
+      "answer": "UNKNOWN",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            13
+          ],
+          "text_sha256": "2221fc08a45ca703f67c6223dcbf8a2fd9c6acffc62f66271e3f6696c159d4a9",
+          "text_characters": 1302
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            13
+          ],
+          "text_sha256": "b6663700a2d68b86656db66d741c0ff5179b188083adaec719beb2fa2d89152f",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            14
+          ],
+          "text_sha256": "5237140cf027d50183855e1fe618fba952f8484c3dc0715a87ff66866de11c98",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            15
+          ],
+          "text_sha256": "294607963b9b4970e761c798169cf3d974d8bce2d8fe0ee1bd6ebde7c076e2d0",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "13": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 0
+        },
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        },
+        "15": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 2
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [],
+      "source_recall": null,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "unknown-replay",
+      "repeat": 0,
+      "arm": "summary",
+      "kind": "abstention",
+      "question": "What exact improvement percentage did this project's dreaming replay agent achieve on these papers before this experiment was run?",
+      "answer": "UNKNOWN",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            2
+          ],
+          "text_sha256": "a2421ae917ec58c76282bd6e228b2c2d71d3992336c3225cebacd0fbfe65ee76",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            6
+          ],
+          "text_sha256": "8b6b09e1828dbaea7b8c30d03ae704fced0853c20971a4850fc7add87be5d072",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            21
+          ],
+          "text_sha256": "96f705086bb852b625b6e7a662c33433b0caf2a8e0c639b1a7caaec24770b88f",
+          "text_characters": 1300
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            22
+          ],
+          "text_sha256": "122b89e44d4a84007fd1b34014d1abd7a846cfb185ae7c2979949ac850c91674",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "2": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 1
+        },
+        "6": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 5
+        },
+        "21": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 2
+        },
+        "22": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 3
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2507.05257v4"
+      ],
+      "support_papers": [],
+      "source_recall": null,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "lme-stages",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "recall",
+      "question": "According to LongMemEval, what three stages make up its long-term memory design framework?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            14
+          ],
+          "text_sha256": "a5e311691bfecf05263cea2072494670d2e69653ce8ef253b7e464cf986e298a",
+          "text_characters": 1302
+        }
+      ],
+      "source_provenance": {
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "lme-questions",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "recall",
+      "question": "How many curated questions does LongMemEval contain?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            13
+          ],
+          "text_sha256": "2221fc08a45ca703f67c6223dcbf8a2fd9c6acffc62f66271e3f6696c159d4a9",
+          "text_characters": 1302
+        }
+      ],
+      "source_provenance": {
+        "13": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 0
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "mab-competencies",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "recall",
+      "question": "Name all four memory competencies in the pinned MemoryAgentBench paper.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            20
+          ],
+          "text_sha256": "ec93f725e96c2f6dbf5681f15b92f669d0f51a1ad6ffbcd9f622158fc452ee51",
+          "text_characters": 1300
+        }
+      ],
+      "source_provenance": {
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2507.05257v4"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "memgpt-technique",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "recall",
+      "question": "What is the name of the context-management technique proposed by MemGPT?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            7
+          ],
+          "text_sha256": "c28952ae3eab62cf14982c5bc83bf9b04a102c44c6a37622e5d56d6c75bb18cb",
+          "text_characters": 1270
+        }
+      ],
+      "source_provenance": {
+        "7": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 0
+        }
+      },
+      "retrieved_papers": [
+        "2310.08560v2"
+      ],
+      "support_papers": [
+        "2310.08560v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "coala-components",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "recall",
+      "question": "What three architectural elements does the CoALA abstract use to describe a language agent?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            5
+          ],
+          "text_sha256": "b80911f76ce3465a55cb7a1cf85a6bd4f4410d75909874e43b699738ecea2c83",
+          "text_characters": 1272
+        }
+      ],
+      "source_provenance": {
+        "5": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3"
+      ],
+      "support_papers": [
+        "2309.02427v3"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "memgpt-domains",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "recall",
+      "question": "Name the two evaluation domains reported by MemGPT.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            11
+          ],
+          "text_sha256": "2fe2909f2a198bb2b188dbba2387e91afff03138f3c966583b5e446e14d14b5b",
+          "text_characters": 1270
+        }
+      ],
+      "source_provenance": {
+        "11": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2310.08560v2"
+      ],
+      "support_papers": [
+        "2310.08560v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "lme-brief",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "task",
+      "question": "Write a LongMemEval research brief stating question count and all five memory abilities evaluated.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            17
+          ],
+          "text_sha256": "6048f70fd1893ba984370800b4911446a8376214597e1fbf804c2c396f8c1b26",
+          "text_characters": 1302
+        }
+      ],
+      "source_provenance": {
+        "17": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "mab-brief",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "task",
+      "question": "Write a MemoryAgentBench study note naming its four competencies and explaining that the input is processed incrementally in multi-turn form.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            20
+          ],
+          "text_sha256": "ec93f725e96c2f6dbf5681f15b92f669d0f51a1ad6ffbcd9f622158fc452ee51",
+          "text_characters": 1300
+        }
+      ],
+      "source_provenance": {
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2507.05257v4"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "coala-memgpt",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "task",
+      "question": "Compare MemGPT and CoALA: name MemGPT's context-management technique and CoALA's memory, action-space and decision-making elements.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            5
+          ],
+          "text_sha256": "b80911f76ce3465a55cb7a1cf85a6bd4f4410d75909874e43b699738ecea2c83",
+          "text_characters": 1272
+        }
+      ],
+      "source_provenance": {
+        "5": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3"
+      ],
+      "support_papers": [
+        "2310.08560v2",
+        "2309.02427v3"
+      ],
+      "source_recall": 0.5,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "framework-compare",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "task",
+      "question": "Contrast the LongMemEval three-stage memory design framework with the MemoryAgentBench four competency categories. Name every stage and category.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            14
+          ],
+          "text_sha256": "a5e311691bfecf05263cea2072494670d2e69653ce8ef253b7e464cf986e298a",
+          "text_characters": 1302
+        }
+      ],
+      "source_provenance": {
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2410.10813v2",
+        "2507.05257v4"
+      ],
+      "source_recall": 0.5,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "unknown-amd",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "abstention",
+      "question": "What exact accuracy did DeepSeek-V4-Flash on AMD Token Lab achieve in the collected LongMemEval paper?",
+      "answer": "UNKNOWN",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            13
+          ],
+          "text_sha256": "2221fc08a45ca703f67c6223dcbf8a2fd9c6acffc62f66271e3f6696c159d4a9",
+          "text_characters": 1302
+        }
+      ],
+      "source_provenance": {
+        "13": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 0
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [],
+      "source_recall": null,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "unknown-replay",
+      "repeat": 0,
+      "arm": "rag",
+      "kind": "abstention",
+      "question": "What exact improvement percentage did this project's dreaming replay agent achieve on these papers before this experiment was run?",
+      "answer": "UNKNOWN",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            21
+          ],
+          "text_sha256": "96f705086bb852b625b6e7a662c33433b0caf2a8e0c639b1a7caaec24770b88f",
+          "text_characters": 1300
+        }
+      ],
+      "source_provenance": {
+        "21": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 2
+        }
+      },
+      "retrieved_papers": [
+        "2507.05257v4"
+      ],
+      "support_papers": [],
+      "source_recall": null,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "lme-stages",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "recall",
+      "question": "According to LongMemEval, what three stages make up its long-term memory design framework?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            13
+          ],
+          "text_sha256": "b6663700a2d68b86656db66d741c0ff5179b188083adaec719beb2fa2d89152f",
+          "text_characters": 200
+        },
+        {
+          "kind": "replay",
+          "sources": [
+            14
+          ],
+          "text_sha256": "c6487d092112d3f31924992cda6060eb376ffa8091326257cec369bed45dc87f",
+          "text_characters": 1325
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            15
+          ],
+          "text_sha256": "294607963b9b4970e761c798169cf3d974d8bce2d8fe0ee1bd6ebde7c076e2d0",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            18
+          ],
+          "text_sha256": "b74b52adda14f5be7c2ed9afb3f32fd28942d98b383043ea1b56537e9fbf79f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "13": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 0
+        },
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        },
+        "15": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 2
+        },
+        "18": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "lme-questions",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "recall",
+      "question": "How many curated questions does LongMemEval contain?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "raw",
+          "sources": [
+            13
+          ],
+          "text_sha256": "2221fc08a45ca703f67c6223dcbf8a2fd9c6acffc62f66271e3f6696c159d4a9",
+          "text_characters": 1302
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            13
+          ],
+          "text_sha256": "b6663700a2d68b86656db66d741c0ff5179b188083adaec719beb2fa2d89152f",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            17
+          ],
+          "text_sha256": "5864aa7414d7ae1436f589ba62e76940781f32f994bed20f22ea558c141c5393",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            18
+          ],
+          "text_sha256": "b74b52adda14f5be7c2ed9afb3f32fd28942d98b383043ea1b56537e9fbf79f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "13": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 0
+        },
+        "17": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 4
+        },
+        "18": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "mab-competencies",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "recall",
+      "question": "Name all four memory competencies in the pinned MemoryAgentBench paper.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            11
+          ],
+          "text_sha256": "1c3eab5e2ba0b0090fda3b39469c0b32aba72060c858a93cf286253a31933aeb",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            20
+          ],
+          "text_sha256": "f9406917476a7a4a0571307b427d770538151c1f0c63b4560d5cabd9206c374a",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            20
+          ],
+          "text_sha256": "ec93f725e96c2f6dbf5681f15b92f669d0f51a1ad6ffbcd9f622158fc452ee51",
+          "text_characters": 1300
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            23
+          ],
+          "text_sha256": "44f49d99d38e3ce6d668d7c7f6fd5f54da02a7892ebfab03802fe3b9be8db8f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "11": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 4
+        },
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        },
+        "23": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2310.08560v2",
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2507.05257v4"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "memgpt-technique",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "recall",
+      "question": "What is the name of the context-management technique proposed by MemGPT?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "replay",
+          "sources": [
+            7
+          ],
+          "text_sha256": "0f041993090c4bce81f8a4be611a19079432bd8bdc9db8c1ad8ea3b658a3cd92",
+          "text_characters": 1293
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            8
+          ],
+          "text_sha256": "1c469de8dff6ebcae8fe871e60273b6f288f569b1591f950009abda5a8648623",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            9
+          ],
+          "text_sha256": "efb6d6ce51573d492c730d1329b78f9e16b53ec27ba2ba93b5074a5abed9a0b0",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            12
+          ],
+          "text_sha256": "45fc8af2984227b61d3d5a6772114379199e867b81bf82847b75beeb09c26585",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "7": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 0
+        },
+        "8": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 1
+        },
+        "9": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 2
+        },
+        "12": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2310.08560v2"
+      ],
+      "support_papers": [
+        "2310.08560v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "coala-components",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "recall",
+      "question": "What three architectural elements does the CoALA abstract use to describe a language agent?",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            2
+          ],
+          "text_sha256": "a2421ae917ec58c76282bd6e228b2c2d71d3992336c3225cebacd0fbfe65ee76",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            4
+          ],
+          "text_sha256": "5b963b6e81655f90d3554579ebb1365b7dee45264ea4d793757730b51cc12da4",
+          "text_characters": 200
+        },
+        {
+          "kind": "replay",
+          "sources": [
+            5
+          ],
+          "text_sha256": "a8ee5dcf33460a5706e0b014c4b73acac45f63d9990dcf77a675e4a0c158ec51",
+          "text_characters": 1295
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            18
+          ],
+          "text_sha256": "b74b52adda14f5be7c2ed9afb3f32fd28942d98b383043ea1b56537e9fbf79f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "2": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 1
+        },
+        "4": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 3
+        },
+        "5": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 4
+        },
+        "18": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2410.10813v2"
+      ],
+      "support_papers": [
+        "2309.02427v3"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "memgpt-domains",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "recall",
+      "question": "Name the two evaluation domains reported by MemGPT.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            4
+          ],
+          "text_sha256": "5b963b6e81655f90d3554579ebb1365b7dee45264ea4d793757730b51cc12da4",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            8
+          ],
+          "text_sha256": "1c469de8dff6ebcae8fe871e60273b6f288f569b1591f950009abda5a8648623",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            11
+          ],
+          "text_sha256": "2fe2909f2a198bb2b188dbba2387e91afff03138f3c966583b5e446e14d14b5b",
+          "text_characters": 1270
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            11
+          ],
+          "text_sha256": "1c3eab5e2ba0b0090fda3b39469c0b32aba72060c858a93cf286253a31933aeb",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "4": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 3
+        },
+        "8": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 1
+        },
+        "11": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2310.08560v2"
+      ],
+      "support_papers": [
+        "2310.08560v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "lme-brief",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "task",
+      "question": "Write a LongMemEval research brief stating question count and all five memory abilities evaluated.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            10
+          ],
+          "text_sha256": "cb20eb8fae9d2b004e8c6b7b2112dcb9eb9ee2c35fe5e0a4887fd80e987f7019",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            17
+          ],
+          "text_sha256": "6048f70fd1893ba984370800b4911446a8376214597e1fbf804c2c396f8c1b26",
+          "text_characters": 1302
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            17
+          ],
+          "text_sha256": "5864aa7414d7ae1436f589ba62e76940781f32f994bed20f22ea558c141c5393",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            20
+          ],
+          "text_sha256": "f9406917476a7a4a0571307b427d770538151c1f0c63b4560d5cabd9206c374a",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "10": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 3
+        },
+        "17": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 4
+        },
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2310.08560v2",
+        "2410.10813v2",
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2410.10813v2"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "mab-brief",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "task",
+      "question": "Write a MemoryAgentBench study note naming its four competencies and explaining that the input is processed incrementally in multi-turn form.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            19
+          ],
+          "text_sha256": "d66ad6a2ae270daf18a9973abc9a97cc8634c6fb36d1a63ddc766d2eaf5984bf",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            20
+          ],
+          "text_sha256": "ec93f725e96c2f6dbf5681f15b92f669d0f51a1ad6ffbcd9f622158fc452ee51",
+          "text_characters": 1300
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            20
+          ],
+          "text_sha256": "f9406917476a7a4a0571307b427d770538151c1f0c63b4560d5cabd9206c374a",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            23
+          ],
+          "text_sha256": "44f49d99d38e3ce6d668d7c7f6fd5f54da02a7892ebfab03802fe3b9be8db8f2",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "19": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 0
+        },
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        },
+        "23": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 4
+        }
+      },
+      "retrieved_papers": [
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2507.05257v4"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "coala-memgpt",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "task",
+      "question": "Compare MemGPT and CoALA: name MemGPT's context-management technique and CoALA's memory, action-space and decision-making elements.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            2
+          ],
+          "text_sha256": "a2421ae917ec58c76282bd6e228b2c2d71d3992336c3225cebacd0fbfe65ee76",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            5
+          ],
+          "text_sha256": "b80911f76ce3465a55cb7a1cf85a6bd4f4410d75909874e43b699738ecea2c83",
+          "text_characters": 1272
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            9
+          ],
+          "text_sha256": "efb6d6ce51573d492c730d1329b78f9e16b53ec27ba2ba93b5074a5abed9a0b0",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            12
+          ],
+          "text_sha256": "45fc8af2984227b61d3d5a6772114379199e867b81bf82847b75beeb09c26585",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "2": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 1
+        },
+        "5": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 4
+        },
+        "9": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 2
+        },
+        "12": {
+          "arxiv_id": "2310.08560v2",
+          "chunk_index": 5
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2310.08560v2"
+      ],
+      "support_papers": [
+        "2310.08560v2",
+        "2309.02427v3"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "framework-compare",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "task",
+      "question": "Contrast the LongMemEval three-stage memory design framework with the MemoryAgentBench four competency categories. Name every stage and category.",
+      "answer": "UNKNOWN",
+      "passed": false,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            4
+          ],
+          "text_sha256": "5b963b6e81655f90d3554579ebb1365b7dee45264ea4d793757730b51cc12da4",
+          "text_characters": 200
+        },
+        {
+          "kind": "raw",
+          "sources": [
+            14
+          ],
+          "text_sha256": "a5e311691bfecf05263cea2072494670d2e69653ce8ef253b7e464cf986e298a",
+          "text_characters": 1302
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            18
+          ],
+          "text_sha256": "b74b52adda14f5be7c2ed9afb3f32fd28942d98b383043ea1b56537e9fbf79f2",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            20
+          ],
+          "text_sha256": "f9406917476a7a4a0571307b427d770538151c1f0c63b4560d5cabd9206c374a",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "4": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 3
+        },
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        },
+        "18": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 5
+        },
+        "20": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 1
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2410.10813v2",
+        "2507.05257v4"
+      ],
+      "support_papers": [
+        "2410.10813v2",
+        "2507.05257v4"
+      ],
+      "source_recall": 1.0,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "unknown-amd",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "abstention",
+      "question": "What exact accuracy did DeepSeek-V4-Flash on AMD Token Lab achieve in the collected LongMemEval paper?",
+      "answer": "UNKNOWN",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "replay",
+          "sources": [
+            13
+          ],
+          "text_sha256": "b978b671e1c2dcfeae807ce07b991208ec3c8399c9e674996cefe5112a9c0d7a",
+          "text_characters": 1325
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            13
+          ],
+          "text_sha256": "b6663700a2d68b86656db66d741c0ff5179b188083adaec719beb2fa2d89152f",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            14
+          ],
+          "text_sha256": "5237140cf027d50183855e1fe618fba952f8484c3dc0715a87ff66866de11c98",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            15
+          ],
+          "text_sha256": "294607963b9b4970e761c798169cf3d974d8bce2d8fe0ee1bd6ebde7c076e2d0",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "13": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 0
+        },
+        "14": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 1
+        },
+        "15": {
+          "arxiv_id": "2410.10813v2",
+          "chunk_index": 2
+        }
+      },
+      "retrieved_papers": [
+        "2410.10813v2"
+      ],
+      "support_papers": [],
+      "source_recall": null,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    },
+    {
+      "question_id": "unknown-replay",
+      "repeat": 0,
+      "arm": "replay",
+      "kind": "abstention",
+      "question": "What exact improvement percentage did this project's dreaming replay agent achieve on these papers before this experiment was run?",
+      "answer": "UNKNOWN",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "summary",
+          "sources": [
+            2
+          ],
+          "text_sha256": "a2421ae917ec58c76282bd6e228b2c2d71d3992336c3225cebacd0fbfe65ee76",
+          "text_characters": 200
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            6
+          ],
+          "text_sha256": "8b6b09e1828dbaea7b8c30d03ae704fced0853c20971a4850fc7add87be5d072",
+          "text_characters": 200
+        },
+        {
+          "kind": "replay",
+          "sources": [
+            21
+          ],
+          "text_sha256": "4c0a367b4e6ba707e79321deec22db1d8756a7001719a93414e88ee5667eed5b",
+          "text_characters": 1323
+        },
+        {
+          "kind": "summary",
+          "sources": [
+            22
+          ],
+          "text_sha256": "122b89e44d4a84007fd1b34014d1abd7a846cfb185ae7c2979949ac850c91674",
+          "text_characters": 200
+        }
+      ],
+      "source_provenance": {
+        "2": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 1
+        },
+        "6": {
+          "arxiv_id": "2309.02427v3",
+          "chunk_index": 5
+        },
+        "21": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 2
+        },
+        "22": {
+          "arxiv_id": "2507.05257v4",
+          "chunk_index": 3
+        }
+      },
+      "retrieved_papers": [
+        "2309.02427v3",
+        "2507.05257v4"
+      ],
+      "support_papers": [],
+      "source_recall": null,
+      "calls": [
+        {
+          "seconds": 0,
+          "usage": {}
+        }
+      ],
+      "usage": {
+        "requests": 1,
+        "seconds": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "requests_without_token_usage": 1
+      }
+    }
+  ],
+  "preprocessing_usage": {
+    "requests": 4,
+    "seconds": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "requests_without_token_usage": 4
+  },
+  "limitations": [
+    "A custom paper QA pilot, not an official MemoryAgentBench run.",
+    "Task completion is textual constraint satisfaction, not external tool execution.",
+    "Alias matching can miss correct paraphrases or accept incorrect negated answers; audit raw answers.",
+    "Supporting-paper provenance recall does not prove a chunk or summary contains the answer.",
+    "Prefix pilots use the first N chunks without question-driven selection; answer-bearing evidence may lie outside that prefix.",
+    "All papers share one corpus; support-cluster bootstrap intervals are exploratory, not population claims.",
+    "Summary/replay preprocessing is generated together and shared; raw RAG needs none of that cost.",
+    "Replay is retrieved synthetic text, not model training. Character budgets are not token budgets.",
+    "API usage is provider-reported successful-call usage; failed-request charges may be missing.",
+    "Temperature zero and repeated hosted calls do not guarantee deterministic outputs."
+  ]
+}
