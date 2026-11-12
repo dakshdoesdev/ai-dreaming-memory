@@ -191,6 +191,38 @@ class ExtractTests(unittest.TestCase):
             with self.subTest(value=value), self.assertRaisesRegex(ValueError, "max_chunks_per_paper"):
                 extract_papers(self.store, self.model, max_chunks_per_paper=value)
 
+    def test_invalid_first_response_retries_once_then_saves_valid_claim(self):
+        self.store.papers[0]["chunks"] = [self.store.papers[0]["chunks"][0]]
+        original = self.model.complete
+        prompts = []
+        def repair(system, prompt):
+            prompts.append(json.loads(prompt))
+            valid = original(system, prompt)
+            return "invalid json" if len(prompts) == 1 else valid
+        self.model.complete = repair
+        result = extract_papers(self.store, self.model)
+        self.assertEqual(len(prompts), 2)
+        self.assertIn("validation_error", prompts[1])
+        self.assertIn("consecutive", prompts[1]["correction"])
+        self.assertEqual(result["papers_complete"], 1)
+        self.assertEqual(result["claims_total"], 1)
+        self.assertEqual(len(result["calls"]), 2)
+
+    def test_invalid_output_has_exactly_two_attempts(self):
+        self.model.invalid = "bad JSON"
+        with self.assertRaises(ValueError):
+            extract_papers(self.store, self.model)
+        self.assertEqual(len(self.model.calls), 2)
+        self.assertEqual(self.checkpoint(), [])
+
+    def test_omitted_model_message_id_uses_canonical_source(self):
+        self.model.invalid = json.dumps({"claims": [{"kind": "method", "text": "Retrieval",
+            "evidence_segments": [0]}]})
+        result = extract_papers(self.store, self.model, max_chunks=1)
+        claim = result["papers"][0]["claims"][0]
+        self.assertEqual(claim["message_id"], 1)
+        self.assertEqual(claim["evidence"], self.store.papers[0]["chunks"][0]["text"])
+
 
 if __name__ == "__main__":
     unittest.main()

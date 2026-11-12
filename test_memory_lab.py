@@ -81,6 +81,52 @@ class MemoryTests(unittest.TestCase):
             self.store.dream(FixedDream([fact(), fact(), fact()]))
         self.assertEqual(self.store.pending(), 2)
 
+    def test_segment_dream_reconstructs_exact_replay_answer(self):
+        source = "a" * 200 + "The tea is green. " * 12 + "z" * 100
+        self.store.add("session", "user", source)
+        model = Mock()
+        model.complete.return_value = json.dumps({"memories": [{
+            "source_id": 1, "text": "Green tea", "question": "What tea?", "evidence_segments": [1, 2]}]})
+        self.assertEqual(self.store.dream(model), 1)
+        sent = json.loads(model.complete.call_args.args[1])
+        self.assertEqual(sent[0]["source_segments"][1], {"id": 1, "text": source[200:400]})
+        replay = self.store.db.execute("SELECT text FROM documents WHERE kind='replay'").fetchone()[0]
+        self.assertEqual(replay, "Q: What tea?\nA: " + source[200:600])
+
+    def test_invalid_segment_dreams_never_change_memory(self):
+        self.store.add("session", "user", "a" * 700)
+        for source_id, selected in ((1, []), (1, [True]), (1, [-1]), (1, [4]),
+                                     (1, [0, 2]), (1, [1, 0]), (1, [0, 1, 2, 3]),
+                                     (True, [0]), (2, [0])):
+            model = Mock()
+            model.complete.return_value = json.dumps({"memories": [{
+                "source_id": source_id, "text": "Small fact", "question": "What?",
+                "evidence_segments": selected}]})
+            with self.subTest(source_id=source_id, selected=selected), self.assertRaises(ValueError):
+                self.store.dream(model)
+            self.assertEqual(model.complete.call_count, 2)
+            self.assertEqual(self.store.pending(), 1)
+            self.assertEqual(self.store.db.execute("SELECT count(*) FROM documents").fetchone()[0], 1)
+
+    def test_dream_retries_invalid_output_once(self):
+        self.add_preference()
+        model = Mock()
+        model.complete.side_effect = ["not JSON", json.dumps({"memories": [{
+            "source_id": 1, "text": "Tea preference", "question": "What tea?", "evidence_segments": [0]}]})]
+        self.assertEqual(self.store.dream(model), 1)
+        self.assertEqual(model.complete.call_count, 2)
+        self.assertIn("failed validation", model.complete.call_args.args[0])
+
+    def test_malformed_dream_shape_is_a_value_error(self):
+        self.add_preference()
+        for output in ("[]", "{}", '{"memories":null}', '{"memories":[null]}', None):
+            model = Mock()
+            model.complete.return_value = output
+            with self.subTest(output=output), self.assertRaises(ValueError):
+                self.store.dream(model)
+            self.assertEqual(model.complete.call_count, 2)
+            self.assertEqual(self.store.pending(), 1)
+
     def test_context_budget_and_k_never_truncate_evidence(self):
         self.add_preference()
         self.store.add("session", "user", "Tea is served at noon.")
