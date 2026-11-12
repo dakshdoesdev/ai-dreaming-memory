@@ -224,6 +224,8 @@ def normalized(text):
 
 
 def grade(answer, question):
+    if question.get("kind") == "abstention":
+        return normalized(answer) == "unknown"
     answer = " " + normalized(answer) + " "
     def contains(value):
         return " " + normalized(value) + " " in answer

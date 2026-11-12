@@ -5,6 +5,7 @@ import contextlib
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 import time
 
 from memory_lab import ARMS, SmokeModel, TokenLab, positive
@@ -24,7 +25,9 @@ def public_report(report):
     if isinstance(report, dict):
         result = {}
         for key, value in report.items():
-            if key in ("text", "evidence") and isinstance(value, str):
+            if key == "text" and report.get("kind") in ("method", "finding", "gap"):
+                result["interpretation"] = value
+            elif key in ("text", "evidence") and isinstance(value, str):
                 result[key + "_sha256"] = hashlib.sha256(value.encode()).hexdigest()
                 result[key + "_characters"] = len(value)
             else:
@@ -96,6 +99,9 @@ def main():
         saved = json.loads(Path(args.input).read_text())
         if saved.get("status") == "running":
             raise ValueError("An unfinished run cannot be exported.")
+        if not (all(key in saved for key in ("metrics", "records", "model", "smoke_only"))
+                or all(key in saved for key in ("papers", "claims_total", "model", "smoke_only"))):
+            raise ValueError("Only a completed evaluation or extraction report can be exported.")
         if args.command == "report":
             content = report_markdown(saved)
         else:
@@ -133,6 +139,12 @@ def main():
         else:
             from paper_eval import evaluate_papers
             questions = json.loads(Path(args.questions).read_text())
+            implementation = {name: hashlib.sha256((Path(__file__).parent / name).read_bytes()).hexdigest()
+                              for name in ("memory_lab.py", "paper_eval.py", "paper_store.py", "research_lab.py")}
+            try:
+                revision = subprocess.check_output(["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL, text=True).strip()
+            except (OSError, subprocess.CalledProcessError):
+                revision = None
             target = Path(args.out or ("results/papers-" + time.strftime("%Y%m%d-%H%M%S") + ".json"))
             target.parent.mkdir(parents=True, exist_ok=True)
             with target.open("x") as handle:
@@ -140,6 +152,8 @@ def main():
                 handle.flush()
                 report = evaluate_papers(store, model_for(args), questions, args.repeats, args.seed, args.k, args.budget,
                                          args.max_chunks_per_paper)
+                report["implementation_sha256"] = implementation
+                report["code_revision"] = revision
                 handle.seek(0)
                 handle.truncate()
                 json.dump(report, handle, indent=2, ensure_ascii=False)

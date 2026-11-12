@@ -138,6 +138,8 @@ class EvaluationTests(unittest.TestCase):
         self.assertFalse(lab.grade("Matcha on Monday with coffee", question))
         self.assertFalse(lab.grade("Matcha on Mondays", question))
         self.assertFalse(lab.grade("Green tea", question))
+        self.assertTrue(lab.grade("UNKNOWN", {"kind": "abstention"}))
+        self.assertFalse(lab.grade("UNKNOWN but the score is 90", {"kind": "abstention"}))
 
     def test_invalid_support_is_rejected_before_model_call(self):
         data = self.dataset()
