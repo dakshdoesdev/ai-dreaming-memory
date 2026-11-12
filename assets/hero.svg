@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="490" viewBox="0 0 1440 490" role="img" aria-labelledby="title desc">
+<title id="title">Dreaming Memory Research Lab</title><desc id="desc">An arXiv research-memory experiment connecting evidence, compact memories, and synthetic replay. Decorative concept illustration, not an application screenshot.</desc>
+<style>text{font-family:DejaVu Sans,Arial,sans-serif}.small{font-size:16px}.label{font-size:14px;letter-spacing:2px}.body{font-size:19px}</style>
+
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".035"/></pattern></defs>
+<rect width="1440" height="490" rx="24" fill="#101e2b"/>
+<rect width="1440" height="490" rx="24" fill="url(#grid)"/>
+<path d="M70 76h36" stroke="#68dbc4" stroke-width="4"/>
+<text x="122" y="82" fill="#93aab9" class="label">AN EVIDENCE-FIRST RESEARCH EXPERIMENT</text>
+<text x="68" y="174" fill="#f5f7f5" font-size="59" font-weight="700">Dreaming Memory</text>
+<text x="68" y="242" fill="#f5f7f5" font-size="59" font-weight="700">Research Lab</text>
+<text x="70" y="300" fill="#bfccd3" font-size="22">Can consolidation help an agent remember?</text>
+<text x="70" y="339" fill="#93aab9" class="body">Collect papers. Preserve evidence. Test the memory.</text>
+<rect x="70" y="386" width="460" height="42" rx="21" fill="#1a303c"/>
+<text x="91" y="412" fill="#a7e4d7" class="small">arXiv  /  DeepSeek  /  SQLite  /  RAG</text>
+<circle cx="1118" cy="246" r="172" fill="none" stroke="#38505d" stroke-width="1"/>
+<circle cx="1118" cy="246" r="131" fill="none" stroke="#38505d" stroke-width="1" stroke-dasharray="4 8"/>
+<path d="M966 159L1236 220L1048 352Z" fill="#68dbc4" fill-opacity=".035" stroke="#68dbc4" stroke-opacity=".55"/>
+<circle cx="966" cy="159" r="15" fill="#68dbc4"/>
+<circle cx="1236" cy="220" r="15" fill="#f1bf77"/>
+<circle cx="1048" cy="352" r="15" fill="#91adf5"/>
+<text x="910" y="119" fill="#e0f4ee" class="body">Evidence</text>
+<text x="1222" y="269" fill="#f4dfc2" class="body">Memory</text>
+<text x="1009" y="400" fill="#d5dff8" class="body">Replay</text>
+<text x="1121" y="247" text-anchor="middle" fill="#f5f7f5" font-size="31" font-weight="700">Recall</text>
+<text x="1121" y="275" text-anchor="middle" fill="#93aab9" class="small">measured, not assumed</text>
+</svg>

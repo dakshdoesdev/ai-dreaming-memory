@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="640" viewBox="0 0 1440 640" role="img" aria-labelledby="title desc">
+<title id="title">Research agent data flow</title><desc id="desc">arXiv text enters SQLite. Separate DeepSeek steps extract candidate claims and create compact memories and replay. Raw and derived records feed three BM25 retrieval conditions, then held-out evaluation. Extraction candidates stay outside factual retrieval.</desc>
+<style>text{font-family:DejaVu Sans,Arial,sans-serif}.small{font-size:16px}.label{font-size:14px;letter-spacing:2px}.body{font-size:19px}</style>
+
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8" fill="none" stroke="#69818d" stroke-width="1.4"/></marker></defs>
+<rect width="1440" height="640" rx="20" fill="#f5f7f6"/>
+<text x="56" y="65" fill="#172f3d" font-size="30" font-weight="700">One corpus. Three memory conditions. Held-out questions.</text>
+<text x="56" y="103" fill="#536a76" class="body">Original evidence stays local; model-generated records retain source provenance.</text>
+<g stroke="#69818d" stroke-width="2" fill="none" marker-end="url(#arrow)">
+<path d="M254 250H320"/><path d="M640 250H708"/><path d="M1014 225H1088"/>
+<path d="M494 314V414H708"/><path d="M580 174V137H1210V164"/>
+</g>
+<rect x="56" y="184" width="198" height="130" rx="12" fill="#e7ecee" stroke="#cbd5d9"/>
+<text x="78" y="224" fill="#172f3d" font-size="23" font-weight="700">arXiv papers</text>
+<text x="78" y="257" fill="#536a76" class="small">Pinned IDs + metadata</text>
+<text x="78" y="284" fill="#536a76" class="small">HTML / PDF text</text>
+<rect x="320" y="174" width="320" height="140" rx="12" fill="#172f3d"/>
+<text x="345" y="215" fill="#fff" font-size="23" font-weight="700">Persistent SQLite store</text>
+<text x="345" y="251" fill="#bdcdd4" class="small">Full text · chunks · hashes</text>
+<text x="345" y="279" fill="#bdcdd4" class="small">Original conversations stay intact</text>
+<rect x="708" y="164" width="306" height="150" rx="12" fill="#e3f1eb" stroke="#b3d5c4"/>
+<text x="731" y="204" fill="#155c4a" font-size="22" font-weight="700">DeepSeek consolidation</text>
+<text x="731" y="241" fill="#426d5f" class="small">Compact facts + replay pairs</text>
+<text x="731" y="272" fill="#426d5f" class="small">Schema + source-span validation</text>
+<rect x="708" y="386" width="306" height="130" rx="12" fill="#eeeaf4" stroke="#d2c9e0"/>
+<text x="731" y="425" fill="#57466d" font-size="22" font-weight="700">Paper claim extraction</text>
+<text x="731" y="459" fill="#71617f" class="small">Methods · findings · gap candidates</text>
+<text x="731" y="489" fill="#71617f" class="small">Separate records; review required</text>
+<rect x="1088" y="164" width="296" height="150" rx="12" fill="#fff" stroke="#bdcbd0"/>
+<text x="1111" y="204" fill="#172f3d" font-size="22" font-weight="700">BM25 + answering</text>
+<text x="1111" y="239" fill="#536a76" class="small">raw / +memory / +replay</text>
+<text x="1111" y="271" fill="#536a76" class="small">Same model + character budget</text>
+<path d="M1240 314V387" stroke="#69818d" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1088" y="386" width="296" height="130" rx="12" fill="#faefd9" stroke="#e5d0a9"/>
+<text x="1111" y="425" fill="#7b5a24" font-size="22" font-weight="700">Held-out evaluation</text>
+<text x="1111" y="459" fill="#8a7148" class="small">Answers · scores · token usage</text>
+<text x="1111" y="489" fill="#8a7148" class="small">Isolated frozen corpus per trial</text>
+<rect x="56" y="557" width="1328" height="46" rx="8" fill="#e8edeb"/>
+<text x="78" y="586" fill="#526a62" class="small">Extraction claims do not enter factual retrieval. Test questions and rubric answers never enter memory construction.</text>
+</svg>
