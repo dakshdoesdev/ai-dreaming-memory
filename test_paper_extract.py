@@ -155,14 +155,30 @@ class ExtractTests(unittest.TestCase):
         result = extract_papers(self.store, self.model)
         self.assertEqual(result["papers"][0]["claims"][0]["evidence"], source[300:900])
 
-    def test_invalid_or_nonconsecutive_segment_ids_rejected(self):
+    def test_invalid_segment_ids_rejected(self):
         self.store.papers[0]["chunks"][0]["text"] = "a" * 1200
-        for selected in ([], [True], [-1], [4], [0, 2], [1, 0], [0, 0], [0, 1, 2, 3], "0"):
+        for selected in ([], [True], [-1], [4], [0, 1, 2, 3, 0], "0"):
             self.model.invalid = json.dumps({"claims": [{"kind": "method", "text": "A method",
                 "message_id": 1, "evidence_segments": selected}]})
             with self.subTest(selected=selected), self.assertRaisesRegex(ValueError, "Evidence segments"):
                 extract_papers(self.store, self.model)
             self.assertEqual(self.checkpoint(), [])
+
+    def test_nonconsecutive_segments_use_exact_covering_span(self):
+        source = "a" * 300 + "b" * 300 + "c" * 300 + "d" * 300
+        self.store.papers[0]["chunks"][0]["text"] = source
+        self.model.invalid = json.dumps({"claims": [{"kind": "method", "text": "A method",
+            "evidence_segments": [2, 0]}]})
+        result = extract_papers(self.store, self.model, max_chunks=1)
+        self.assertEqual(result["papers"][0]["claims"][0]["evidence"], source[:900])
+
+    def test_covering_span_larger_than_2000_is_rejected(self):
+        self.store.papers[0]["chunks"][0]["text"] = "a" * 2400
+        self.model.invalid = json.dumps({"claims": [{"kind": "method", "text": "A method",
+            "evidence_segments": [0, 7]}]})
+        with self.assertRaisesRegex(ValueError, "Ungrounded"):
+            extract_papers(self.store, self.model)
+        self.assertEqual(self.checkpoint(), [])
 
     def test_per_paper_prefix_is_partial_for_full_paper(self):
         self.store.papers.append({"metadata": {"arxiv_id": "2410.10813v1", "title": "Second paper",
@@ -203,7 +219,7 @@ class ExtractTests(unittest.TestCase):
         result = extract_papers(self.store, self.model)
         self.assertEqual(len(prompts), 2)
         self.assertIn("validation_error", prompts[1])
-        self.assertIn("consecutive", prompts[1]["correction"])
+        self.assertIn("covering", prompts[1]["correction"])
         self.assertEqual(result["papers_complete"], 1)
         self.assertEqual(result["claims_total"], 1)
         self.assertEqual(len(result["calls"]), 2)

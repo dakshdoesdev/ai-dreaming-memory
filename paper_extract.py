@@ -13,8 +13,9 @@ EXTRACTION_PROMPT = (
     '"evidence_segments":[0,1]}]}. '
     "This request contains one source excerpt; the program assigns its provenance automatically. "
     "Do not return message_id fields. At most 6 claims. Each claim must be supported by its evidence. "
-    "For evidence_segments select 1 to 3 consecutive numeric source_segments IDs in ascending order. "
-    "Select the smallest span supporting the claim; the program reconstructs exact evidence from those slices. "
+    "For evidence_segments select numeric source_segments IDs supporting the claim. "
+    "Select the smallest supporting span; the program reconstructs its exact covering source text, "
+    "including all intervening context between the lowest and highest selected ID. "
     "Do not copy or rewrite quotations. Only select IDs present in the supplied source_segments. "
     "A gap must be an explicit author-reported limitation, unresolved problem or future direction "
     "of this paper's own work, not a gap attributed to another paper in related work. "
@@ -55,12 +56,11 @@ def _claims(output, chunk):
             raise ValueError("Claim interpretation must be nonempty text of at most 500 characters.")
         if "evidence_segments" in claim:
             selected, slices = claim["evidence_segments"], _segments(chunk["text"])
-            if (not isinstance(selected, list) or not 1 <= len(selected) <= 3
-                    or any(type(index) is not int or index < 0 or index >= len(slices) for index in selected)
-                    or selected != list(range(selected[0], selected[0] + len(selected)))):
-                raise ValueError("Evidence segments must be 1–3 consecutive valid source IDs.")
-            evidence = "".join(slices[index] for index in selected)
-        if (not isinstance(evidence, str) or not evidence.strip() or len(evidence) > 1000
+            if (not isinstance(selected, list) or not 1 <= len(selected) <= len(slices)
+                    or any(type(index) is not int or index < 0 or index >= len(slices) for index in selected)):
+                raise ValueError("Evidence segments must be a bounded list of valid source IDs.")
+            evidence = "".join(slices[min(selected):max(selected) + 1])
+        if (not isinstance(evidence, str) or not evidence.strip() or len(evidence) > 2000
                 or evidence not in chunk["text"]):
             raise ValueError("Ungrounded extraction quote rejected; checkpoint unchanged.")
         result.append({"kind": kind, "text": text, "evidence": evidence,
@@ -130,8 +130,9 @@ def extract_papers(store, model, max_chunks=None, max_chunks_per_paper=None):
                             raise
                         prompt_data["validation_error"] = str(error)
                         prompt_data["correction"] = (
-                            "Correct the invalid structured response. Select only 1–3 consecutive source IDs "
-                            "per claim, such as [0] or [1,2], never disconnected IDs like [0,4]. "
+                            "Correct the invalid structured response. Select only valid source segment IDs "
+                            "per claim; the program includes the exact covering span between the lowest "
+                            "and highest selected ID, including intervening context. Keep this span minimal. "
                             "Omit unsupported claims and all 'no gap/limitation stated' placeholders. "
                             "Return an empty claims list when no supported research claim is present.")
             claims.extend(new_claims)

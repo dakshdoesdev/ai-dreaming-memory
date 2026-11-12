@@ -96,8 +96,7 @@ class MemoryTests(unittest.TestCase):
     def test_invalid_segment_dreams_never_change_memory(self):
         self.store.add("session", "user", "a" * 700)
         for source_id, selected in ((1, []), (1, [True]), (1, [-1]), (1, [4]),
-                                     (1, [0, 2]), (1, [1, 0]), (1, [0, 1, 2, 3]),
-                                     (True, [0]), (2, [0])):
+                                     (1, [0, 1, 2, 3, 0]), (True, [0]), (2, [0])):
             model = Mock()
             model.complete.return_value = json.dumps({"memories": [{
                 "source_id": source_id, "text": "Small fact", "question": "What?",
@@ -107,6 +106,22 @@ class MemoryTests(unittest.TestCase):
             self.assertEqual(model.complete.call_count, 2)
             self.assertEqual(self.store.pending(), 1)
             self.assertEqual(self.store.db.execute("SELECT count(*) FROM documents").fetchone()[0], 1)
+
+    def test_nonconsecutive_segment_selection_uses_exact_covering_span(self):
+        source = "a" * 200 + "b" * 200 + "c" * 200 + "d" * 100
+        for selected in ([0, 2], [2, 0], [2, 0, 2]):
+            with self.subTest(selected=selected):
+                memories = lab._dream_memories(json.dumps({"memories": [{
+                    "source_id": 1, "text": "Short fact", "question": "What?",
+                    "evidence_segments": selected}]}), {1: source})
+                self.assertEqual(memories[0]["answer"], source[:600])
+                self.assertEqual(memories[0]["evidence"], source[:600])
+
+    def test_covering_segment_span_retains_answer_size_limit(self):
+        with self.assertRaisesRegex(ValueError, "too large"):
+            lab._dream_memories(json.dumps({"memories": [{
+                "source_id": 1, "text": "Short fact", "question": "What?",
+                "evidence_segments": [0, 10]}]}), {1: "a" * 2200})
 
     def test_dream_retries_invalid_output_once(self):
         self.add_preference()
