@@ -1,0 +1,530 @@
+[
+  {
+    "id": "cedar",
+    "history": [
+      "My project is Cedar. For the Cedar launch, the approved spending limit is 450 dollars, and the launch coordinator is Mira.",
+      "The Cedar launch must take place in Pune. The preferred supplier is Harbor Supplies, which can deliver before Friday.",
+      "Correction to my Cedar launch plan: use 600 dollars as the spending limit. The old 450 dollar limit is obsolete. Mira still coordinates the launch.",
+      "My Cedar design notes mention green paper and a simple sign. The sign draft is optional and not a purchasing requirement.",
+      "For the unrelated cedar reading club, I borrowed a book about rivers and wrote two pages of notes. This has no bearing on project plans or purchases.",
+      "The cedar weather diary says it was cloudy on Sunday. I took a walk after lunch and photographed an old bridge. No work decisions were made.",
+      "In the cedar music journal I listened to piano recordings, sorted a playlist, and practiced a short melody. These were leisure activities, not project instructions."
+    ],
+    "questions": [
+      {
+        "question": "What is the current Cedar launch spending limit?",
+        "kind": "recall",
+        "required": [
+          [
+            "600"
+          ]
+        ],
+        "support": [
+          3
+        ],
+        "forbidden": [
+          "450"
+        ]
+      },
+      {
+        "question": "Write a Cedar launch brief naming the city, coordinator, supplier, and current spending limit.",
+        "kind": "task",
+        "required": [
+          [
+            "Pune"
+          ],
+          [
+            "Mira"
+          ],
+          [
+            "Harbor Supplies"
+          ],
+          [
+            "600"
+          ]
+        ],
+        "support": [
+          1,
+          2,
+          3
+        ],
+        "forbidden": [
+          "450"
+        ]
+      },
+      {
+        "question": "What is the Cedar coordinator Mira's private phone number?",
+        "kind": "abstention",
+        "required": [
+          [
+            "UNKNOWN"
+          ]
+        ],
+        "support": [],
+        "forbidden": []
+      }
+    ]
+  },
+  {
+    "id": "orbit",
+    "history": [
+      "For the Orbit report, I need the dataset named iris-2026.csv. The final report must be a PDF, and the reviewer is Nisha.",
+      "The Orbit submission deadline is 18 December 2026 at 17:00. Submit through the university portal, not by email.",
+      "I finished an Orbit experiment with a linear model yesterday. This was exploratory and does not change the submission requirements.",
+      "Orbit update: the reviewer is now Arjun, replacing Nisha. The filename, PDF format, portal and deadline remain the same.",
+      "For the unrelated orbit reading club, I borrowed a book about rivers and wrote two pages of notes. This has no bearing on project plans or purchases.",
+      "The orbit weather diary says it was cloudy on Sunday. I took a walk after lunch and photographed an old bridge. No work decisions were made.",
+      "In the orbit music journal I listened to piano recordings, sorted a playlist, and practiced a short melody. These were leisure activities, not project instructions."
+    ],
+    "questions": [
+      {
+        "question": "Who currently reviews the Orbit report?",
+        "kind": "recall",
+        "required": [
+          [
+            "Arjun"
+          ]
+        ],
+        "support": [
+          4
+        ],
+        "forbidden": [
+          "Nisha"
+        ]
+      },
+      {
+        "question": "Give the Orbit submission checklist: dataset filename, format, reviewer and submission channel.",
+        "kind": "task",
+        "required": [
+          [
+            "iris-2026.csv"
+          ],
+          [
+            "PDF"
+          ],
+          [
+            "Arjun"
+          ],
+          [
+            "portal"
+          ]
+        ],
+        "support": [
+          1,
+          2,
+          4
+        ],
+        "forbidden": [
+          "Nisha"
+        ]
+      },
+      {
+        "question": "What grade did the Orbit report receive?",
+        "kind": "abstention",
+        "required": [
+          [
+            "UNKNOWN"
+          ]
+        ],
+        "support": [],
+        "forbidden": []
+      }
+    ]
+  },
+  {
+    "id": "lumen",
+    "history": [
+      "I am organizing the Lumen dinner. Dev is vegetarian and allergic to peanuts. Choose food without meat or peanuts for Dev.",
+      "The Lumen dinner is on Saturday at Lotus Cafe. My reservation is for 6 people at 19:30.",
+      "Lumen dinner update: move the reservation time to 20:00. Keep Saturday, Lotus Cafe and the party size of 6.",
+      "Lotus Cafe offers a vegetable rice bowl. For Lumen I confirmed that this bowl can be prepared without peanuts; it is the agreed meal for Dev.",
+      "For the unrelated lumen reading club, I borrowed a book about rivers and wrote two pages of notes. This has no bearing on project plans or purchases.",
+      "The lumen weather diary says it was cloudy on Sunday. I took a walk after lunch and photographed an old bridge. No work decisions were made.",
+      "In the lumen music journal I listened to piano recordings, sorted a playlist, and practiced a short melody. These were leisure activities, not project instructions."
+    ],
+    "questions": [
+      {
+        "question": "What is the updated time for the Lumen dinner?",
+        "kind": "recall",
+        "required": [
+          [
+            "20:00"
+          ]
+        ],
+        "support": [
+          3
+        ],
+        "forbidden": [
+          "19:30"
+        ]
+      },
+      {
+        "question": "State the Lumen dinner venue, updated time, party size, and agreed meal for Dev.",
+        "kind": "task",
+        "required": [
+          [
+            "Lotus Cafe"
+          ],
+          [
+            "20:00"
+          ],
+          [
+            "6"
+          ],
+          [
+            "vegetable rice bowl"
+          ]
+        ],
+        "support": [
+          2,
+          3,
+          4
+        ],
+        "forbidden": [
+          "19:30"
+        ]
+      },
+      {
+        "question": "What is the Lumen dinner reservation confirmation code?",
+        "kind": "abstention",
+        "required": [
+          [
+            "UNKNOWN"
+          ]
+        ],
+        "support": [],
+        "forbidden": []
+      }
+    ]
+  },
+  {
+    "id": "atlas",
+    "history": [
+      "My Atlas deployment uses Python 3.11. The service entry point is server.py, and it listens on port 8088.",
+      "Atlas deploy procedure: run the unit tests, then deploy to staging, then perform a health check at /health. Production deployment is not authorized.",
+      "Atlas owner update: the on-call engineer is Leena. Contact Leena if the staging health check fails; do not deploy to production.",
+      "Atlas uses SQLite for this prototype. A planned PostgreSQL migration was discussed but has not been approved or implemented.",
+      "For the unrelated atlas reading club, I borrowed a book about rivers and wrote two pages of notes. This has no bearing on project plans or purchases.",
+      "The atlas weather diary says it was cloudy on Sunday. I took a walk after lunch and photographed an old bridge. No work decisions were made.",
+      "In the atlas music journal I listened to piano recordings, sorted a playlist, and practiced a short melody. These were leisure activities, not project instructions."
+    ],
+    "questions": [
+      {
+        "question": "What database does Atlas currently use?",
+        "kind": "recall",
+        "required": [
+          [
+            "SQLite"
+          ]
+        ],
+        "support": [
+          4
+        ],
+        "forbidden": []
+      },
+      {
+        "question": "Give the Atlas staging checklist including Python version, entry point, port and health endpoint.",
+        "kind": "task",
+        "required": [
+          [
+            "Python 3.11"
+          ],
+          [
+            "server.py"
+          ],
+          [
+            "8088"
+          ],
+          [
+            "/health"
+          ],
+          [
+            "staging"
+          ]
+        ],
+        "support": [
+          1,
+          2
+        ],
+        "forbidden": []
+      },
+      {
+        "question": "What is the Atlas production database password?",
+        "kind": "abstention",
+        "required": [
+          [
+            "UNKNOWN"
+          ]
+        ],
+        "support": [],
+        "forbidden": []
+      }
+    ]
+  },
+  {
+    "id": "fern",
+    "history": [
+      "For my Fern travel plan, the destination is Mysuru. I will travel by train, and my luggage limit is 15 kilograms.",
+      "The Fern accommodation booking is at Pine House for 2 nights. The booking contact is Rohan.",
+      "Fern itinerary correction: change the destination to Kochi and the accommodation to Lake House. Keep train travel and the luggage limit of 15 kilograms.",
+      "For Fern, Rohan confirmed that the revised Lake House booking is for 3 nights, replacing the earlier 2-night plan.",
+      "For the unrelated fern reading club, I borrowed a book about rivers and wrote two pages of notes. This has no bearing on project plans or purchases.",
+      "The fern weather diary says it was cloudy on Sunday. I took a walk after lunch and photographed an old bridge. No work decisions were made.",
+      "In the fern music journal I listened to piano recordings, sorted a playlist, and practiced a short melody. These were leisure activities, not project instructions."
+    ],
+    "questions": [
+      {
+        "question": "How many nights is the current Fern booking?",
+        "kind": "recall",
+        "required": [
+          [
+            "3"
+          ]
+        ],
+        "support": [
+          4
+        ],
+        "forbidden": [
+          "2"
+        ]
+      },
+      {
+        "question": "Summarize the current Fern itinerary: destination, accommodation, travel method and number of nights.",
+        "kind": "task",
+        "required": [
+          [
+            "Kochi"
+          ],
+          [
+            "Lake House"
+          ],
+          [
+            "train"
+          ],
+          [
+            "3"
+          ]
+        ],
+        "support": [
+          3,
+          4
+        ],
+        "forbidden": [
+          "Mysuru",
+          "Pine House"
+        ]
+      },
+      {
+        "question": "What is the Fern train seat number?",
+        "kind": "abstention",
+        "required": [
+          [
+            "UNKNOWN"
+          ]
+        ],
+        "support": [],
+        "forbidden": []
+      }
+    ]
+  },
+  {
+    "id": "quartz",
+    "history": [
+      "For the Quartz workshop, participants must bring a laptop and an HDMI adapter. The trainer is Zoya.",
+      "The Quartz workshop starts at 10:00 in room B204. The hands-on exercise uses the local sample.csv file.",
+      "Quartz workshop update: the room is now C310. The start time remains 10:00; B204 is no longer the venue.",
+      "The Quartz workshop should run without internet. Downloading a new dataset during the session is not part of the exercise.",
+      "For the unrelated quartz reading club, I borrowed a book about rivers and wrote two pages of notes. This has no bearing on project plans or purchases.",
+      "The quartz weather diary says it was cloudy on Sunday. I took a walk after lunch and photographed an old bridge. No work decisions were made.",
+      "In the quartz music journal I listened to piano recordings, sorted a playlist, and practiced a short melody. These were leisure activities, not project instructions."
+    ],
+    "questions": [
+      {
+        "question": "Which room currently hosts the Quartz workshop?",
+        "kind": "recall",
+        "required": [
+          [
+            "C310"
+          ]
+        ],
+        "support": [
+          3
+        ],
+        "forbidden": [
+          "B204"
+        ]
+      },
+      {
+        "question": "Write a Quartz attendee reminder with room, start time, both required items and exercise filename.",
+        "kind": "task",
+        "required": [
+          [
+            "C310"
+          ],
+          [
+            "10:00"
+          ],
+          [
+            "laptop"
+          ],
+          [
+            "HDMI adapter"
+          ],
+          [
+            "sample.csv"
+          ]
+        ],
+        "support": [
+          1,
+          2,
+          3
+        ],
+        "forbidden": [
+          "B204"
+        ]
+      },
+      {
+        "question": "How much does registration for the Quartz workshop cost?",
+        "kind": "abstention",
+        "required": [
+          [
+            "UNKNOWN"
+          ]
+        ],
+        "support": [],
+        "forbidden": []
+      }
+    ]
+  },
+  {
+    "id": "brook",
+    "history": [
+      "My Brook purchase is a monitor. The budget is 18000 rupees, the required input is HDMI, and the desk can hold at most a 24-inch screen.",
+      "For Brook I shortlisted the Vista 24 model. It costs 16500 rupees, is 24 inches, and has HDMI. It meets the requirements.",
+      "The Brook delivery contact is Sana. Delivery should go to the office reception, not my home address.",
+      "Brook update: my budget is now 17000 rupees. Vista 24 at 16500 rupees remains the selected monitor.",
+      "For the unrelated brook reading club, I borrowed a book about rivers and wrote two pages of notes. This has no bearing on project plans or purchases.",
+      "The brook weather diary says it was cloudy on Sunday. I took a walk after lunch and photographed an old bridge. No work decisions were made.",
+      "In the brook music journal I listened to piano recordings, sorted a playlist, and practiced a short melody. These were leisure activities, not project instructions."
+    ],
+    "questions": [
+      {
+        "question": "What is the current Brook monitor budget?",
+        "kind": "recall",
+        "required": [
+          [
+            "17000"
+          ]
+        ],
+        "support": [
+          4
+        ],
+        "forbidden": [
+          "18000"
+        ]
+      },
+      {
+        "question": "Prepare the Brook purchase instruction naming the selected model, price, input and delivery location.",
+        "kind": "task",
+        "required": [
+          [
+            "Vista 24"
+          ],
+          [
+            "16500"
+          ],
+          [
+            "HDMI"
+          ],
+          [
+            "office reception"
+          ]
+        ],
+        "support": [
+          1,
+          2,
+          3
+        ],
+        "forbidden": []
+      },
+      {
+        "question": "What is the serial number of the Brook monitor?",
+        "kind": "abstention",
+        "required": [
+          [
+            "UNKNOWN"
+          ]
+        ],
+        "support": [],
+        "forbidden": []
+      }
+    ]
+  },
+  {
+    "id": "ember",
+    "history": [
+      "The Ember backup plan covers the photos folder. Backups go to the external drive named Birch, every Sunday.",
+      "For Ember, keep the latest 4 weekly snapshots. The verification method is a SHA256 checksum comparison.",
+      "Ember backup update: retain 8 weekly snapshots instead of 4. The external drive Birch and Sunday schedule remain unchanged.",
+      "Ember restores must go to the restore-check folder first. Never overwrite the original photos folder during a verification restore.",
+      "For the unrelated ember reading club, I borrowed a book about rivers and wrote two pages of notes. This has no bearing on project plans or purchases.",
+      "The ember weather diary says it was cloudy on Sunday. I took a walk after lunch and photographed an old bridge. No work decisions were made.",
+      "In the ember music journal I listened to piano recordings, sorted a playlist, and practiced a short melody. These were leisure activities, not project instructions."
+    ],
+    "questions": [
+      {
+        "question": "How many weekly snapshots should Ember retain now?",
+        "kind": "recall",
+        "required": [
+          [
+            "8"
+          ]
+        ],
+        "support": [
+          3
+        ],
+        "forbidden": [
+          "4"
+        ]
+      },
+      {
+        "question": "Write the Ember backup checklist: source folder, drive, schedule, current retention and verification method.",
+        "kind": "task",
+        "required": [
+          [
+            "photos"
+          ],
+          [
+            "Birch"
+          ],
+          [
+            "Sunday"
+          ],
+          [
+            "8"
+          ],
+          [
+            "SHA256"
+          ]
+        ],
+        "support": [
+          1,
+          2,
+          3
+        ],
+        "forbidden": []
+      },
+      {
+        "question": "What is the hardware serial number of the Ember backup drive?",
+        "kind": "abstention",
+        "required": [
+          [
+            "UNKNOWN"
+          ]
+        ],
+        "support": [],
+        "forbidden": []
+      }
+    ]
+  }
+]

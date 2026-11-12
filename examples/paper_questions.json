@@ -1,0 +1,244 @@
+[
+  {
+    "id": "lme-stages",
+    "question": "According to LongMemEval, what three stages make up its long-term memory design framework?",
+    "kind": "recall",
+    "required": [
+      [
+        "indexing"
+      ],
+      [
+        "retrieval"
+      ],
+      [
+        "reading"
+      ]
+    ],
+    "support_papers": [
+      "2410.10813v2"
+    ]
+  },
+  {
+    "id": "lme-questions",
+    "question": "How many curated questions does LongMemEval contain?",
+    "kind": "recall",
+    "required": [
+      [
+        "500"
+      ]
+    ],
+    "support_papers": [
+      "2410.10813v2"
+    ]
+  },
+  {
+    "id": "mab-competencies",
+    "question": "Name all four memory competencies in the pinned MemoryAgentBench paper.",
+    "kind": "recall",
+    "required": [
+      [
+        "accurate retrieval"
+      ],
+      [
+        "test-time learning"
+      ],
+      [
+        "long-range understanding"
+      ],
+      [
+        "selective forgetting"
+      ]
+    ],
+    "support_papers": [
+      "2507.05257v4"
+    ]
+  },
+  {
+    "id": "memgpt-technique",
+    "question": "What is the name of the context-management technique proposed by MemGPT?",
+    "kind": "recall",
+    "required": [
+      [
+        "virtual context management"
+      ]
+    ],
+    "support_papers": [
+      "2310.08560v2"
+    ]
+  },
+  {
+    "id": "coala-components",
+    "question": "What three architectural elements does the CoALA abstract use to describe a language agent?",
+    "kind": "recall",
+    "required": [
+      [
+        "modular memory",
+        "memory components"
+      ],
+      [
+        "action space"
+      ],
+      [
+        "decision-making",
+        "decision making"
+      ]
+    ],
+    "support_papers": [
+      "2309.02427v3"
+    ]
+  },
+  {
+    "id": "memgpt-domains",
+    "question": "Name the two evaluation domains reported by MemGPT.",
+    "kind": "recall",
+    "required": [
+      [
+        "document analysis"
+      ],
+      [
+        "multi-session chat",
+        "multi session chat"
+      ]
+    ],
+    "support_papers": [
+      "2310.08560v2"
+    ]
+  },
+  {
+    "id": "lme-brief",
+    "question": "Write a LongMemEval research brief stating question count and all five memory abilities evaluated.",
+    "kind": "task",
+    "required": [
+      [
+        "500"
+      ],
+      [
+        "information extraction"
+      ],
+      [
+        "multi-session reasoning"
+      ],
+      [
+        "temporal reasoning"
+      ],
+      [
+        "knowledge updates"
+      ],
+      [
+        "abstention"
+      ]
+    ],
+    "support_papers": [
+      "2410.10813v2"
+    ]
+  },
+  {
+    "id": "mab-brief",
+    "question": "Write a MemoryAgentBench study note naming its four competencies and explaining that the input is processed incrementally in multi-turn form.",
+    "kind": "task",
+    "required": [
+      [
+        "accurate retrieval"
+      ],
+      [
+        "test-time learning"
+      ],
+      [
+        "long-range understanding"
+      ],
+      [
+        "selective forgetting"
+      ],
+      [
+        "multi-turn",
+        "multi turn"
+      ],
+      [
+        "incremental",
+        "incrementally"
+      ]
+    ],
+    "support_papers": [
+      "2507.05257v4"
+    ]
+  },
+  {
+    "id": "coala-memgpt",
+    "question": "Compare MemGPT and CoALA: name MemGPT's context-management technique and CoALA's memory, action-space and decision-making elements.",
+    "kind": "task",
+    "required": [
+      [
+        "virtual context management"
+      ],
+      [
+        "modular memory",
+        "memory components"
+      ],
+      [
+        "action space"
+      ],
+      [
+        "decision-making",
+        "decision making"
+      ]
+    ],
+    "support_papers": [
+      "2310.08560v2",
+      "2309.02427v3"
+    ]
+  },
+  {
+    "id": "framework-compare",
+    "question": "Contrast the LongMemEval three-stage memory design framework with the MemoryAgentBench four competency categories. Name every stage and category.",
+    "kind": "task",
+    "required": [
+      [
+        "indexing"
+      ],
+      [
+        "retrieval"
+      ],
+      [
+        "reading"
+      ],
+      [
+        "accurate retrieval"
+      ],
+      [
+        "test-time learning"
+      ],
+      [
+        "long-range understanding"
+      ],
+      [
+        "selective forgetting"
+      ]
+    ],
+    "support_papers": [
+      "2410.10813v2",
+      "2507.05257v4"
+    ]
+  },
+  {
+    "id": "unknown-amd",
+    "question": "What exact accuracy did DeepSeek-V4-Flash on AMD Token Lab achieve in the collected LongMemEval paper?",
+    "kind": "abstention",
+    "required": [
+      [
+        "UNKNOWN"
+      ]
+    ],
+    "support_papers": []
+  },
+  {
+    "id": "unknown-replay",
+    "question": "What exact improvement percentage did this project's dreaming replay agent achieve on these papers before this experiment was run?",
+    "kind": "abstention",
+    "required": [
+      [
+        "UNKNOWN"
+      ]
+    ],
+    "support_papers": []
+  }
+]

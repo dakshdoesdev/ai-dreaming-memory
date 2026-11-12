@@ -1,0 +1,7 @@
+__pycache__/
+data/
+results/
+.env
+.venv/
+docs/IMPLEMENTATION_PLAN.md
+.omx/
