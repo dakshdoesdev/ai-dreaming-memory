@@ -68,6 +68,12 @@ class StoreTests(unittest.TestCase):
         parser.feed('<nav>Chrome</nav><article class="ltx_document"><h1>Title</h1><p>Agent <em>memory</em>.</p><script>bad()</script><p>Findings.</p></article><footer>Ignore</footer>')
         self.assertEqual(parser.text(), "Title\nAgent memory.\nFindings.")
 
+    def test_html_void_self_closing_tags_do_not_end_article(self):
+        parser = papers.ArticleText()
+        parser.feed('<article class="ltx_document"><p>Before</p><img src="x"/><br/><hr/><p>After</p></article><footer>Ignore</footer>')
+        self.assertEqual(parser.text(), "Before\nAfter")
+        self.assertEqual(parser.depth, 0)
+
     def test_collection_uses_cache_and_pins_version(self):
         cache = Path(self.tmp.name) / "cache"
         text = "This is the full paper body about memory research. " * 100

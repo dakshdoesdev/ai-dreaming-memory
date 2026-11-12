@@ -252,6 +252,40 @@ class EvaluationTests(unittest.TestCase):
 
 
 class TokenLabTests(unittest.TestCase):
+    def test_memory_schema_ties_segments_to_each_source(self):
+        rows = [{"id": 7, "source_segments": [{"id": 0}, {"id": 1}]},
+                {"id": 9, "source_segments": [{"id": 0}]}]
+        schema = lab._structured_schema("Consolidate conversation evidence. Return ONLY JSON", json.dumps(rows))
+        memories = schema["properties"]["memories"]
+        self.assertEqual(memories["minItems"], 1)
+        self.assertEqual(memories["maxItems"], 4)
+        first, second = memories["items"]["anyOf"]
+        self.assertEqual(first["properties"]["source_id"]["const"], 7)
+        self.assertEqual(second["properties"]["source_id"]["const"], 9)
+        self.assertEqual(first["properties"]["evidence_segments"]["items"]["enum"], [0, 1])
+        self.assertEqual(second["properties"]["evidence_segments"]["items"]["enum"], [0])
+        self.assertFalse(first["additionalProperties"])
+        self.assertEqual(set(first["required"]), set(first["properties"]))
+
+    def test_extraction_schema_omits_model_supplied_message_id(self):
+        schema = lab._structured_schema("Extract research claims. Return ONLY JSON", json.dumps({
+            "message_id": 8, "source_segments": [{"id": 0}, {"id": 1}]}))
+        claims = schema["properties"]["claims"]
+        self.assertEqual(claims["maxItems"], 6)
+        item = claims["items"]
+        self.assertEqual(item["properties"]["kind"]["enum"], ["method", "finding", "gap"])
+        self.assertNotIn("message_id", item["properties"])
+        self.assertFalse(item["additionalProperties"])
+        self.assertEqual(set(item["required"]), set(item["properties"]))
+
+    def test_schema_helper_ignores_unrelated_and_malformed_inputs(self):
+        for system, prompt in (("Other. Return ONLY JSON", "{}"),
+                               ("Consolidate conversation evidence. Return ONLY JSON", "bad"),
+                               ("Consolidate conversation evidence. Return ONLY JSON", '[{"id":1}]'),
+                               ("Extract research claims. Return ONLY JSON", '{"source_segments":[{"id":true}]}'),
+                               ("Extract research claims", '{"source_segments":[{"id":0}]}')):
+            self.assertIsNone(lab._structured_schema(system, prompt))
+
     def client(self):
         with patch.dict(os.environ, {"OPENAI_API_KEY": "test-secret", "OPENAI_BASE_URL": "https://api.tokenlab.amd.com/v1"}):
             return lab.TokenLab()
@@ -284,6 +318,18 @@ class TokenLabTests(unittest.TestCase):
             client.complete("Consolidate. Return ONLY JSON", "source")
         body = json.loads(opener.open.call_args.args[0].data)
         self.assertEqual(body["response_format"], {"type": "json_object"})
+
+    def test_grounded_requests_send_dynamic_json_schema(self):
+        client, opener = self.client(), Mock()
+        opener.open.return_value = self.response('{"memories": []}')
+        system = "Consolidate conversation evidence. Return ONLY JSON"
+        prompt = json.dumps([{"id": 7, "source_segments": [{"id": 0}, {"id": 1}]}])
+        with patch.object(lab.urllib.request, "build_opener", return_value=opener), patch.object(lab.time, "sleep"):
+            client.complete(system, prompt)
+        wire = json.loads(opener.open.call_args.args[0].data)["response_format"]
+        self.assertEqual(wire["type"], "json_schema")
+        self.assertTrue(wire["json_schema"]["strict"])
+        self.assertEqual(wire["json_schema"]["schema"], lab._structured_schema(system, prompt))
 
     def test_retry_after_and_nonretryable_auth_error(self):
         client, opener = self.client(), Mock()

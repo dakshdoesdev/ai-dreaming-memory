@@ -19,6 +19,57 @@ import urllib.request
 ARMS = ("rag", "summary", "replay")
 
 
+def _structured_schema(system, prompt):
+    """Constrain known memory/extraction outputs to IDs present in their input."""
+    if "Return ONLY JSON" not in system:
+        return None
+    try:
+        data = json.loads(prompt)
+    except (TypeError, ValueError):
+        return None
+
+    def evidence_schema(source):
+        segments = source.get("source_segments") if isinstance(source, dict) else None
+        if (not isinstance(segments, list) or not segments
+                or any(not isinstance(item, dict) or type(item.get("id")) is not int for item in segments)):
+            return None
+        ids = list(dict.fromkeys(item["id"] for item in segments))
+        if any(ident < 0 for ident in ids):
+            return None
+        return {"type": "array", "items": {"type": "integer", "enum": ids},
+                "minItems": 1, "maxItems": len(ids)}
+
+    if system.startswith("Consolidate conversation evidence") and isinstance(data, list) and data:
+        branches = []
+        for row in data:
+            evidence = evidence_schema(row)
+            if not evidence or type(row.get("id")) is not int:
+                return None
+            branches.append({"type": "object", "properties": {
+                "source_id": {"type": "integer", "const": row["id"]},
+                "text": {"type": "string", "minLength": 1, "maxLength": 400},
+                "question": {"type": "string", "minLength": 1, "maxLength": 500},
+                "evidence_segments": evidence},
+                "required": ["source_id", "text", "question", "evidence_segments"],
+                "additionalProperties": False})
+        field, items = "memories", {"type": "array", "items": {"anyOf": branches},
+                                     "minItems": 1, "maxItems": 2 * len(data)}
+    elif system.startswith("Extract research claims") and isinstance(data, dict):
+        evidence = evidence_schema(data)
+        if not evidence:
+            return None
+        field, items = "claims", {"type": "array", "maxItems": 6, "items": {
+            "type": "object", "properties": {
+                "kind": {"type": "string", "enum": ["method", "finding", "gap"]},
+                "text": {"type": "string", "minLength": 1, "maxLength": 500},
+                "evidence_segments": evidence},
+            "required": ["kind", "text", "evidence_segments"], "additionalProperties": False}}
+    else:
+        return None
+    return {"type": "object", "properties": {field: items},
+            "required": [field], "additionalProperties": False}
+
+
 def _dream_memories(output, source_map):
     if not isinstance(output, str):
         raise ValueError("Dream returned non-text output.")
@@ -82,7 +133,10 @@ class TokenLab:
             {"role": "system", "content": system}, {"role": "user", "content": prompt}],
             "temperature": 0, "max_tokens": 1800, "stream": False}
         if "Return ONLY JSON" in system:
-            body["response_format"] = {"type": "json_object"}
+            schema = _structured_schema(system, prompt)
+            body["response_format"] = ({"type": "json_schema", "json_schema": {
+                "name": "grounded_memory", "strict": True, "schema": schema}}
+                if schema else {"type": "json_object"})
             body["max_tokens"] = 3000
         payload = json.dumps(body).encode()
         started = time.monotonic()

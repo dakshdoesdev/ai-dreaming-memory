@@ -18,6 +18,7 @@ from memory_lab import Memory
 
 HOSTS = {"arxiv.org", "www.arxiv.org", "export.arxiv.org"}
 ATOM = {"a": "http://www.w3.org/2005/Atom", "x": "http://arxiv.org/schemas/atom"}
+VOID_TAGS = {"br", "hr", "img", "input", "meta", "link", "wbr", "source", "area", "embed", "param", "track", "col", "base"}
 
 
 def arxiv_id(value):
@@ -116,7 +117,7 @@ class ArticleText(HTMLParser):
             if tag == "article" and "ltx_document" in attrs.get("class", "").split():
                 self.depth = 1
             return
-        if tag not in ("br", "hr", "img", "input", "meta", "link", "wbr", "source", "area", "embed", "param", "track", "col", "base"):
+        if tag not in VOID_TAGS:
             self.depth += 1
         if tag in ("script", "style", "nav"):
             self.skip += 1
@@ -124,7 +125,8 @@ class ArticleText(HTMLParser):
             self.parts.append("\n")
 
     def handle_endtag(self, tag):
-        if not self.depth:
+        # HTMLParser emits an end callback for <img/>; void tags never opened a level.
+        if not self.depth or tag in VOID_TAGS:
             return
         if tag in ("script", "style", "nav") and self.skip:
             self.skip -= 1
