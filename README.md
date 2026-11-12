@@ -1,112 +1,116 @@
+<p align="center">
+  <img src="assets/hero.svg" alt="Dreaming Memory Research Lab: an evidence-first experiment connecting research papers, compact memories and synthetic replay." width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/dakshdoesdev/ai-dreaming-memory/actions/workflows/tests.yml"><img src="https://github.com/dakshdoesdev/ai-dreaming-memory/actions/workflows/tests.yml/badge.svg?branch=main" alt="Python test workflow"></a>
+  <a href="docs/GETTING_STARTED.md"><img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11 or newer"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-21866d" alt="MIT license"></a>
+</p>
+
 # Dreaming Memory Research Lab
 
-An arXiv research agent powered by **DeepSeek through AMD Token Lab**, with persistent SQLite memory and a repeatable comparison against ordinary lexical RAG.
+**Can an agent remember research better by compressing and replaying its experiences?**
 
-The experiment asks whether compressed memories and synthetic replay improve paper recall and research-brief completion under a fixed context budget. Improvement is a hypothesis, not an assumption. Task success is a textual constraint proxy, not autonomous scientific discovery.
+This Python experiment collects arXiv papers, extracts evidence-grounded research claims with **DeepSeek through AMD Token Lab**, and compares persistent memory against ordinary lexical RAG. It preserves original evidence and measures the tradeoffs instead of assuming that more memory helps.
 
-## What it does
+[Quick start](#quick-start) · [Results](artifacts/RESULTS.md) · [CLI reference](docs/CLI.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
 
-1. Collects version-pinned arXiv metadata and full text, with local caching and content hashes.
-2. Extracts methods, findings and author-reported research gaps using DeepSeek. Evidence segments are reconstructed from original text; model interpretations still require review.
-3. Stores original chunks, compact memories and generated replay pairs persistently in SQLite.
-4. Compares raw RAG, RAG plus memory, and RAG plus memory/replay on held-out questions.
-5. Exports metrics, model answers, provenance hashes and limitations without publishing the downloaded papers.
+## The first experiment
 
-Python 3.11+ and SQLite FTS5 are sufficient. There are **no external Python packages**. Poppler's `pdftotext` is needed only when an arXiv paper has no usable HTML.
+![Live pilot: raw RAG passed 5 of 12 rubric checks; both memory arms passed 10 of 12. Answering used 4838, 6833 and 7446 tokens respectively, plus shared memory construction.](assets/pilot-results.png)
 
-## Setup
+| Retrieval condition | Rubric checks passed | What it reads |
+| --- | ---: | --- |
+| Raw RAG | **5 / 12** | Original paper chunks |
+| RAG + compressed memory | **10 / 12** | Originals and compact facts |
+| RAG + memory + replay | **10 / 12** | Originals, compact facts and synthetic Q&A |
+
+**Consolidation helped this pilot; replay added no gain.** This was one run on the first six chunks of four papers, with a fixed character budget. Literal scoring has documented false negatives, and the memory arms used more tokens. These results do not establish general superiority over RAG.
+
+Read the [full results, costs and scoring audit](artifacts/RESULTS.md), or inspect the [raw answers and provenance hashes](artifacts/deepseek-pilot.json).
+
+## What the agent does
+
+- **Collect:** pin arXiv versions and store full text, metadata and content hashes locally.
+- **Extract:** identify candidate methods, findings and author-reported gaps with source evidence.
+- **Remember:** keep compact memories and generated replay pairs in SQLite alongside original evidence.
+- **Compare:** evaluate three retrieval conditions against the same held-out questions.
+- **Inspect:** export answers, metrics and provenance hashes without distributing downloaded papers.
+
+The initial collection contains **four full papers and 333 chunks**. The prefix extraction produced **97 candidate claims**; a textual audit flagged four invalid gap classifications. Source grounding verifies where text came from, not whether an interpretation is scientifically correct. See the [extraction audit](artifacts/EXTRACTION_AUDIT.md).
+
+## Quick start
+
+You need **Python 3.11+ with SQLite FTS5**. There are no external Python packages to install for the application or its unit tests. Poppler's `pdftotext` is needed only when a paper has no usable HTML.
 
 ```bash
+git clone https://github.com/dakshdoesdev/ai-dreaming-memory.git
+cd ai-dreaming-memory
+
+# No key or network needed for these checks.
 python3 -m unittest discover -v
-python3 research_lab.py collect
-python3 research_lab.py list
+python3 memory_lab.py --offline evaluate --out results/first-smoke.json
 ```
 
-The default corpus is four pinned papers: CoALA (`2309.02427v3`), MemGPT (`2310.08560v2`), LongMemEval (`2410.10813v2`) and MemoryAgentBench (`2507.05257v4`). Full text and metadata stay in `data/papers.sqlite3` and `data/arxiv-cache/`; both are ignored by Git. Collection uses the arXiv Atom API, an abstract-page metadata fallback, and HTML/PDF text extraction with paced requests. Existing pinned text is never silently replaced.
+The offline model always answers `UNKNOWN`; its scores verify the workflow, not memory capability. Use a new report filename each time.
 
-Create your Token Lab key, then enter it without putting it in shell history:
+To collect papers and run the real model:
 
 ```bash
+python3 research_lab.py collect
+
+# Enter your AMD Token Lab key without placing it in shell history.
 read -rsp 'AMD Token Lab key: ' OPENAI_API_KEY; echo
 export OPENAI_API_KEY
 export OPENAI_BASE_URL=https://api.tokenlab.amd.com/v1
 export TOKEN_LAB_MODEL=DeepSeek-V4-Flash
+
+# Explicitly limited to the first six chunks of each paper.
+python3 research_lab.py extract --max-chunks-per-paper 6 > data/first-extraction.json
+python3 research_lab.py evaluate --max-chunks-per-paper 6 --out results/first-pilot.json
 ```
 
-The callable model ID above was verified with Token Lab's authenticated `/models` endpoint. Catalog display names can differ from API IDs. Choose a chat model; Clef and d3 use a different endpoint. No key is included in this repository. Calls send selected paper text to AMD Token Lab and consume your account's points.
+Model calls send selected text to AMD Token Lab and consume your account's points. The callable model ID above was verified during the pilot; catalog display names and future model availability can differ. The application does not load `.env` files.
 
-## Run the research pipeline
+Continue with the [getting-started walkthrough](docs/GETTING_STARTED.md) for persistent questions, report export and failure recovery. All commands and defaults are in the [CLI reference](docs/CLI.md).
 
-```bash
-# Small, explicitly scoped initial study: first six chunks per paper.
-python3 research_lab.py extract --max-chunks-per-paper 6 > data/extraction.json
-python3 research_lab.py evaluate --max-chunks-per-paper 6 --out results/papers-pilot.json
-python3 research_lab.py report results/papers-pilot.json --out results/papers-pilot.md
+## How memory flows
 
-# Public export removes original retrieved passages and retains their hashes.
-python3 research_lab.py export results/papers-pilot.json --out artifacts/papers-pilot.json
-```
+![Architecture: arXiv text enters SQLite; raw chunks and source-grounded memories feed BM25 answering, while extracted claims remain separate. Evaluation uses a frozen corpus and held-out questions.](assets/architecture.svg)
 
-Prefix runs are labeled as such. The full paper texts remain stored, but a six-chunk pilot does **not** mean the full papers were analyzed. Extraction checkpoints identify complete/partial status; a failed chunk preserves earlier validated work. Re-running the same extraction resumes without paying for cached chunks. `--max-chunks` additionally limits new extraction calls globally.
+Consolidation creates compact facts and synthetic recall pairs in batches. JSON schemas restrict source identifiers; Python reconstructs evidence spans from the original text and validates them before saving. Original text is retained. Extracted paper claims are stored separately and are not automatically promoted into factual retrieval.
 
-For a full-corpus study, omit `--max-chunks-per-paper` from extraction and evaluation. This takes substantially more model calls. To consolidate the persistent corpus and ask questions:
+Evaluation uses isolated temporary databases, consolidates after each six ingested chunks, and keeps questions and expected answers out of memory construction. Every arm uses the same answering model, prompt, retrieval count and character budget. There is no background service or model fine-tuning.
 
-```bash
-python3 research_lab.py consolidate
-python3 research_lab.py ask 'What are the LongMemEval memory design stages?' --arm rag
-python3 research_lab.py ask 'What are the LongMemEval memory design stages?' --arm replay
-```
+See [architecture and storage](docs/ARCHITECTURE.md) and the [experiment protocol](docs/EXPERIMENT.md).
 
-Consolidation processes pending chunks in batches. Evaluation additionally runs consolidation after each six ingested chunks in a fresh temporary database. No background service is installed. Original paper text remains available even after compression. Extracted claims are stored separately and are not automatically promoted into factual retrieval.
+## Documentation
 
-## Evaluation
-
-| Arm | Eligible evidence |
+| You want to… | Start here |
 | --- | --- |
-| `rag` | Original paper chunks |
-| `summary` | Original chunks + compact memories |
-| `replay` | Original chunks + compact memories + synthetic question/answer pairs |
+| Run a first experiment | [Getting started](docs/GETTING_STARTED.md) |
+| Look up a flag, default or recovery step | [CLI reference](docs/CLI.md) |
+| Understand modules, storage and provenance | [Architecture](docs/ARCHITECTURE.md) |
+| Review the research design | [Protocol](docs/EXPERIMENT.md) and [source research](docs/RESEARCH.md) |
+| Inspect results and extraction errors | [Live results](artifacts/RESULTS.md) and [extraction audit](artifacts/EXTRACTION_AUDIT.md) |
+| Improve the project | [Contributing](CONTRIBUTING.md) and [changelog](CHANGELOG.md) |
 
-The same model, answer prompt, BM25 implementation, retrieval count and serialized evidence character budget apply across arms. BM25 statistics are calculated separately on each eligible corpus. Arm order is seeded and shuffled. Each trial uses an isolated frozen corpus; evaluation answers are never written back into memory. Questions and expected answers are excluded from extraction and dreaming prompts.
+The original conversation agent is also available through `python3 memory_lab.py chat`. It persists conversations, consolidates every six user messages, and supports `/dream` and `/quit`. Assistant replies are saved as transcript history but excluded from factual evidence.
 
-`examples/paper_questions.json` contains a fixed 12-question rubric: factual recall, constrained research briefs, cross-paper comparison and abstention. Required answer groups accept listed aliases; all groups must match. This is transparent but imperfect: negations and paraphrases need manual auditing. The original conversation pilot remains available in `examples/pilot.json`.
+## Scope and limitations
 
-Reports include per-category answer scores, supporting-paper recall, paired differences, raw model answers, retrieved provenance, token usage, latency, preprocessing costs, corpus/question hashes and corpus scope. Supporting-paper recall does not prove that the retrieved passage contains the answer. Confidence intervals are suppressed when there are too few support clusters. Repeated calls on the same papers do not create independent data.
+- This is a **custom paper-QA pilot**, not an official MemoryAgentBench run or a demonstration of autonomous scientific discovery.
+- Task completion means satisfying text constraints. Comparison rubrics cannot establish expert-level attribution or citation accuracy.
+- The prefix study does not analyze full papers. Public papers may already be in model pretraining.
+- Equal characters are not equal tokens. Shared memory/replay construction adds cost; replay did not improve this run's accuracy.
+- A source-valid quotation can still support an incorrect interpretation. Candidate gap labels require review.
+- SQLite storage is local plaintext. Keep downloaded papers, databases, keys and private run logs out of Git. Public exports retain model answers, so inspect them before sharing.
 
-```bash
-python3 research_lab.py evaluate --repeats 3 --budget 1200 --max-chunks-per-paper 6 --out results/repeated.json
-```
+The project uses a BM25 baseline; larger independent paper sets, expert-audited scoring and dense/hybrid baselines are still needed. [All recorded limitations](artifacts/RESULTS.md).
 
-Output paths are reserved before inference; existing reports are never overwritten. A failed or interrupted evaluation leaves a `status: running` placeholder, which report/export commands reject. Successful-call usage is recorded; failed-request charges may be missing. Requests are paced below the supplied 20 RPM account limit, with bounded retries for 429 and selected 5xx errors. Run one model process per key at a time.
+## Research and license
 
-## Offline verification
+Built around questions raised by [MemoryAgentBench](https://github.com/HUST-AI-HYZ/MemoryAgentBench), [LongMemEval](https://github.com/xiaowu0162/LongMemEval), [MemGPT](https://arxiv.org/abs/2310.08560v2) and [CoALA](https://arxiv.org/abs/2309.02427v3). Exact paper versions are in the [corpus manifest](artifacts/corpus-manifest.json).
 
-```bash
-python3 memory_lab.py --offline evaluate --out results/conversation-smoke.json
-python3 research_lab.py --offline evaluate --max-chunks-per-paper 6 --out results/paper-smoke.json
-```
-
-Offline mode is a deliberately unintelligent test double that answers `UNKNOWN`. Its scores verify orchestration, not model capability. Offline extraction generates no fake scientific claims. The paper smoke test needs a collected corpus; unit tests need neither internet nor API credentials.
-
-## Results and limitations
-
-See [the published experiment report](artifacts/RESULTS.md) and [source research notes](docs/RESEARCH.md). Downloaded papers, databases, caches, keys and private run logs are excluded from publication. Public JSON replaces source passages with hashes; collect the pinned corpus to reproduce retrieval.
-
-The initial live pilot passed **5/12 automatic rubric checks with raw RAG and 10/12 with either memory arm**. Replay added no accuracy gain. These are small, literal-rubric results; the report documents false negatives, higher token usage, preprocessing costs and extraction errors. They do not establish broad superiority.
-
-This is a small custom paper-QA experiment, **not an official MemoryAgentBench result**. The initial study uses a limited prefix of four publicly known papers; models may have seen these papers in pretraining. Character budgets are not exact token budgets. Summary/replay generation costs are shared and reported separately; their construction costs are not independently isolated. Replay is retrieved data, not model fine-tuning. Claims of broad superiority require larger independent paper sets, expert-audited tasks, additional budgets and stronger retrieval baselines.
-
-The MIT license covers this project's original code/documentation. Papers and third-party datasets retain their own licenses. Background and methodology draw on [MemoryAgentBench](https://github.com/HUST-AI-HYZ/MemoryAgentBench), [LongMemEval](https://github.com/xiaowu0162/LongMemEval), [MemGPT](https://arxiv.org/abs/2310.08560v2) and [CoALA](https://arxiv.org/abs/2309.02427v3).
-
-## Original conversation agent
-
-`memory_lab.py` also supports persistent conversation memory:
-
-```bash
-python3 memory_lab.py chat
-python3 memory_lab.py add 'The Cedar project budget is 600 dollars.'
-python3 memory_lab.py dream
-python3 memory_lab.py ask 'What is the Cedar budget?' --arm replay
-```
-
-Chat consolidates every six user messages; `/dream` processes pending messages and `/quit` exits. Assistant replies are retained in transcripts but excluded from factual evidence. Different sessions in one database share memory; use separate `--db` paths for separate users/projects. SQLite storage is local plaintext.
+Original code and documentation are [MIT licensed](LICENSE). Third-party papers and datasets retain their own licenses.
