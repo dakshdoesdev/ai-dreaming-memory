@@ -262,6 +262,14 @@ class TokenLabTests(unittest.TestCase):
         self.assertFalse(json.loads(request.data)["stream"])
         self.assertEqual(client.calls[0]["usage"]["prompt_tokens"], 7)
 
+    def test_structured_requests_enable_json_mode(self):
+        client, opener = self.client(), Mock()
+        opener.open.return_value = self.response('{"memories": []}')
+        with patch.object(lab.urllib.request, "build_opener", return_value=opener), patch.object(lab.time, "sleep"):
+            client.complete("Consolidate. Return ONLY JSON", "source")
+        body = json.loads(opener.open.call_args.args[0].data)
+        self.assertEqual(body["response_format"], {"type": "json_object"})
+
     def test_retry_after_and_nonretryable_auth_error(self):
         client, opener = self.client(), Mock()
         opener.open.side_effect = [urllib.error.HTTPError("url", 429, "rate", {"Retry-After": "9"}, None), self.response()]

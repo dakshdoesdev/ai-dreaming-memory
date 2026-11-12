@@ -79,9 +79,13 @@ class TokenLab:
         self.last_request = 0.0
 
     def complete(self, system, prompt):
-        payload = json.dumps({"model": self.model, "messages": [
+        body = {"model": self.model, "messages": [
             {"role": "system", "content": system}, {"role": "user", "content": prompt}],
-            "temperature": 0, "max_tokens": 1800, "stream": False}).encode()
+            "temperature": 0, "max_tokens": 1800, "stream": False}
+        if "Return ONLY JSON" in system:
+            body["response_format"] = {"type": "json_object"}
+            body["max_tokens"] = 3000
+        payload = json.dumps(body).encode()
         started = time.monotonic()
         for attempt in range(3):
             # The supplied account limit is 20 RPM; leave a small margin.
